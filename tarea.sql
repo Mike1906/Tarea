@@ -31,9 +31,6 @@ CREATE TABLE `departamento` (
   `nombredepto` varchar(25) NOT NULL,
   `zonageografica` varchar(15) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`iddepto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,8 +39,8 @@ CREATE TABLE `departamento` (
 --
 
 /*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
-INSERT INTO `departamento` (`iddepto`,`nombredepto`,`zonageografica`,`username`,`fecha`,`userm`,`fecham`) VALUES 
- ('1','La Libertad','No se','Mike','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00');
+INSERT INTO `departamento` (`iddepto`,`nombredepto`,`zonageografica`,`username`) VALUES 
+ ('1','La Libertad','No se','Mike');
 /*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 
 
@@ -58,9 +55,6 @@ CREATE TABLE `jrv` (
   `iddepto` varchar(2) NOT NULL,
   `dui` varchar(10) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idjrv`),
   KEY `FK_jrv_1` (`idmunicipio`),
   KEY `FK_jrv_2` (`dui`),
@@ -73,8 +67,8 @@ CREATE TABLE `jrv` (
 --
 
 /*!40000 ALTER TABLE `jrv` DISABLE KEYS */;
-INSERT INTO `jrv` (`idjrv`,`idmunicipio`,`iddepto`,`dui`,`username`,`fecha`,`userm`,`fecham`) VALUES 
- (1,'1','1','1','m','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00');
+INSERT INTO `jrv` (`idjrv`,`idmunicipio`,`iddepto`,`dui`,`username`) VALUES 
+ (1,'1','1','1','m');
 /*!40000 ALTER TABLE `jrv` ENABLE KEYS */;
 
 
@@ -91,11 +85,10 @@ CREATE TABLE `miembrojrv` (
   `idjrv` int(10) unsigned NOT NULL,
   `idtipomiembro` varchar(5) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` varchar(45) NOT NULL,
   PRIMARY KEY (`idmiembrojrv`),
   KEY `FK_miembrojrv_1` (`idtipomiembro`),
+  KEY `FK_miembrojrv_2` (`idjrv`),
+  CONSTRAINT `FK_miembrojrv_2` FOREIGN KEY (`idjrv`) REFERENCES `jrv` (`idjrv`),
   CONSTRAINT `FK_miembrojrv_1` FOREIGN KEY (`idtipomiembro`) REFERENCES `tipomiembro` (`idtipomiembro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -104,9 +97,10 @@ CREATE TABLE `miembrojrv` (
 --
 
 /*!40000 ALTER TABLE `miembrojrv` DISABLE KEYS */;
-INSERT INTO `miembrojrv` (`idmiembrojrv`,`nombres`,`apellidop`,`apellidom`,`idjrv`,`idtipomiembro`,`username`,`fecha`,`userm`,`fecham`) VALUES 
- ('MI001','Miguel Enrique','Agustin','Alvayero',1,'TM001','Mike','0000-00-00 00:00:00',NULL,''),
- ('MI002','aa','aa','aa',1,'TM002','Mike','0000-00-00 00:00:00',NULL,'');
+INSERT INTO `miembrojrv` (`idmiembrojrv`,`nombres`,`apellidop`,`apellidom`,`idjrv`,`idtipomiembro`,`username`) VALUES 
+ ('MI001','Miguel Enrique','Agustin','Alvayero',1,'TM001','Mike'),
+ ('MI002','aa','aa','aa',1,'TM002','Mike'),
+ ('MI003','11','11','11',1,'TM001','1');
 /*!40000 ALTER TABLE `miembrojrv` ENABLE KEYS */;
 
 
@@ -120,9 +114,6 @@ CREATE TABLE `municipio` (
   `iddepto` varchar(2) NOT NULL,
   `nombmunicipio` varchar(25) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` varchar(45) NOT NULL,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`idmunicipio`),
   KEY `FK_municipio_1` (`iddepto`),
   CONSTRAINT `FK_municipio_1` FOREIGN KEY (`iddepto`) REFERENCES `departamento` (`iddepto`)
@@ -133,8 +124,8 @@ CREATE TABLE `municipio` (
 --
 
 /*!40000 ALTER TABLE `municipio` DISABLE KEYS */;
-INSERT INTO `municipio` (`idmunicipio`,`iddepto`,`nombmunicipio`,`username`,`fecha`,`userm`,`fecham`) VALUES 
- ('1','1','Municipio','Mike','',NULL,'0000-00-00 00:00:00');
+INSERT INTO `municipio` (`idmunicipio`,`iddepto`,`nombmunicipio`,`username`) VALUES 
+ ('1','1','Municipio','Mike');
 /*!40000 ALTER TABLE `municipio` ENABLE KEYS */;
 
 
@@ -152,9 +143,6 @@ CREATE TABLE `padronelectoral` (
   `estadovotacion` varchar(1) NOT NULL,
   `idurna` int(10) unsigned NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`dui`),
   KEY `FK_padronelectoral_1` (`idurna`),
   CONSTRAINT `FK_padronelectoral_1` FOREIGN KEY (`idurna`) REFERENCES `urna` (`idurna`)
@@ -165,9 +153,9 @@ CREATE TABLE `padronelectoral` (
 --
 
 /*!40000 ALTER TABLE `padronelectoral` DISABLE KEYS */;
-INSERT INTO `padronelectoral` (`dui`,`nombre`,`apellidos`,`fechanac`,`domicilio`,`estadovotacion`,`idurna`,`username`,`fecha`,`userm`,`fecham`) VALUES 
- ('1','mm','mm','0000-00-00','mm','1',1,'m','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00'),
- ('2','nn','nn','0000-00-00','mm','0',1,'m','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00');
+INSERT INTO `padronelectoral` (`dui`,`nombre`,`apellidos`,`fechanac`,`domicilio`,`estadovotacion`,`idurna`,`username`) VALUES 
+ ('1','mm','mm','0000-00-00','mm','1',1,'m'),
+ ('2','nn','nn','0000-00-00','mm','0',1,'m');
 /*!40000 ALTER TABLE `padronelectoral` ENABLE KEYS */;
 
 
@@ -182,9 +170,6 @@ CREATE TABLE `partidopolitico` (
   `fechafundac` date NOT NULL,
   `nombsecretariogral` varchar(55) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idpartido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -205,9 +190,6 @@ CREATE TABLE `tipomiembro` (
   `idtipomiembro` varchar(5) NOT NULL,
   `descripcion` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idtipomiembro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -216,17 +198,16 @@ CREATE TABLE `tipomiembro` (
 --
 
 /*!40000 ALTER TABLE `tipomiembro` DISABLE KEYS */;
-INSERT INTO `tipomiembro` (`idtipomiembro`,`descripcion`,`username`,`fecha`,`userm`,`fecham`) VALUES 
- ('aa','aaaa','aa','2014-11-03 22:36:38',NULL,'2014-11-03 22:36:38'),
- ('as','as','as','2014-11-03 22:20:46',NULL,'2014-11-03 22:20:46'),
- ('TM000','No activo','Mike','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00'),
- ('TM001','Activo','Mike','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00'),
- ('TM002','Descripcion 02','Mike','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00'),
- ('TM003','Descripcion 03','Mike','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00'),
- ('TM004','Descripcion 04','Mike','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00'),
- ('TM005','Descripcion 05','Mike','2014-11-03 17:26:57',NULL,'0000-00-00 00:00:00'),
- ('TM006','Descripcion 06','Mike','2014-11-03 17:29:34',NULL,'0000-00-00 00:00:00'),
- ('TM007','Descripcion 07','Mike','2014-11-03 17:31:23',NULL,'0000-00-00 00:00:00');
+INSERT INTO `tipomiembro` (`idtipomiembro`,`descripcion`,`username`) VALUES 
+ ('TM000','No activo','Mike'),
+ ('TM001','Activo','Mike'),
+ ('TM002','Descripcion 02','Mike'),
+ ('TM003','Descripcion 03','Mike'),
+ ('TM004','Descripcion 04','Mike'),
+ ('TM005','Descripcion 05','Mike'),
+ ('TM006','Descripcion 06','Mike'),
+ ('TM007','Descripcion 07','Mike'),
+ ('TM008','Descripcion 08','Mike');
 /*!40000 ALTER TABLE `tipomiembro` ENABLE KEYS */;
 
 
@@ -245,9 +226,6 @@ CREATE TABLE `urna` (
   `cantvotosnulos` decimal(6,0) NOT NULL,
   `cantvotosnovalid` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idurna`),
   KEY `FK_urna_1` (`idmunicipio`),
   CONSTRAINT `FK_urna_1` FOREIGN KEY (`idmunicipio`) REFERENCES `municipio` (`idmunicipio`)
@@ -258,8 +236,8 @@ CREATE TABLE `urna` (
 --
 
 /*!40000 ALTER TABLE `urna` DISABLE KEYS */;
-INSERT INTO `urna` (`idurna`,`idmunicipio`,`iddepto`,`numjunta`,`presidente`,`secretario`,`cantvotosnulos`,`cantvotosnovalid`,`username`,`fecha`,`userm`,`fecham`) VALUES 
- (1,'1','1','1','dasd','22','2','2','Mike','0000-00-00 00:00:00',NULL,'0000-00-00 00:00:00');
+INSERT INTO `urna` (`idurna`,`idmunicipio`,`iddepto`,`numjunta`,`presidente`,`secretario`,`cantvotosnulos`,`cantvotosnovalid`,`username`) VALUES 
+ (1,'1','1','1','dasd','22','2','2','Mike');
 /*!40000 ALTER TABLE `urna` ENABLE KEYS */;
 
 
@@ -302,9 +280,6 @@ CREATE TABLE `votacion` (
   `idpartido` varchar(3) NOT NULL,
   `cantvotosvalidos` decimal(6,0) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `userm` varchar(45) DEFAULT NULL,
-  `fecham` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`idvotacion`),
   KEY `FK_votacion_1` (`idpartido`),
   KEY `FK_votacion_2` (`idurna`),
