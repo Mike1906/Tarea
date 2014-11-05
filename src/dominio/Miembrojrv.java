@@ -21,9 +21,7 @@ public class Miembrojrv {
 	private int idjrv;
 	private String idtipomiembro;
 	private String username;
-	private String fecha;
-	private String userm;
-	private String fecham;
+	
 	
 	
 	private Miembrojrv(){		
@@ -102,32 +100,5 @@ public class Miembrojrv {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-	@Basic(optional = true)	
-	@Column(name = "fecha")
-	public String getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-	@Basic(optional = true)	
-	@Column(name = "userm")
-	public String getUserm() {
-		return userm;
-	}
-
-	public void setUserm(String userm) {
-		this.userm = userm;
-	}
-	@Basic(optional = true)	
-	@Column(name = "fecham")
-	public String getFecham() {
-		return fecham;
-	}
-
-	public void setFecham(String fecham) {
-		this.fecham = fecham;
-	}
+	}	
 }

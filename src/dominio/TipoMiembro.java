@@ -22,9 +22,7 @@ public class TipoMiembro implements Serializable{
 	private String idtipomiembro;
 	private String descripcion;
 	private String username;
-	private Date fecha;
-	private String userm;
-	private Date fecham;
+		
 	
 	private TipoMiembro(){
 		
@@ -62,28 +60,5 @@ public class TipoMiembro implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	@Basic(optional = true)
-	@Column(name = "fecha")
-	public Date getFecha() {
-		return fecha;
-	}
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-	@Basic(optional = true)
-	@Column(name = "userm")
-	public String getUserm() {
-		return userm;
-	}
-	public void setUserm(String userm) {
-		this.userm = userm;
-	}
-	@Basic(optional = true)
-	@Column(name = "fecham")
-	public Date getFecham() {
-		return fecham;
-	}
-	public void setFecham(Date fecham) {
-		this.fecham = fecham;
-	}	
+	
 }
