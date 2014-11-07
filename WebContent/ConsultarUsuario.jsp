@@ -9,17 +9,17 @@
 	int numero = usuarios.size();
 	 
  	if (usuarios.isEmpty())
- 		 mensaje = "No Hay Empleados";
+ 		 mensaje = "No Hay Usuarios";
  	else {
  		Usuarios uActual;
+ 		mensaje += "<table><tr> <th>ID</th> <th>NOMBRES</th> <th>APELLIDOS</th><th>USUARIO</th> <th>TIPO DE USUARIO</th></tr>";
  		for (int i=0; i < numero; i++) {
  			 uActual = (Usuarios) usuarios.get(i);
- 			 mensaje += (" ID:   " + uActual.getId()+
- 					 	 " Nombre: " + uActual.getNombre()+
- 					     " Apellido:  " + uActual.getApellido()+ 
- 					     " Usuario:     " + uActual.getUsername() +
- 					     " Tipo usuario: " + uActual.getTipo() +
- 					     "<br>");
+ 			 mensaje += ("<tr><th>" + uActual.getId()+ "</th>"+
+ 					 	 "<th>" + uActual.getNombre()+ "</th>"+
+ 					     "<th>" + uActual.getApellido()+ "</th>"+
+ 					     "<th>" + uActual.getUsername() + "</th>"+
+ 					     "<th>" + uActual.getTipo() + "</th></tr>");
  		}
  	}
 %> 
@@ -28,10 +28,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Usuarios</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
-<%= mensaje %><br>
-<br><br>
+<fieldset>
+<legend>Usuarios registrados en el sistema</legend>
+<center><%= mensaje %></center>
 	<a href="Main.jsp">Volver al menu</a>
+</fieldset>
 </body>
 </html>

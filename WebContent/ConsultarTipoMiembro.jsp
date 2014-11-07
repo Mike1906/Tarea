@@ -12,12 +12,12 @@
  		 mensaje = "No Hay Datos";
  	else {
  		TipoMiembro uActual;
+ 		mensaje += "<table><tr> <th>ID</th> <th>DESCRIPCION</th> <th>USUARIO</th> </tr>";  
  		for (int i=0; i < numero; i++) {
  			 uActual = (TipoMiembro) tipomiembro.get(i);
- 			 mensaje += (" ID:   " + uActual.getIdtipomiembro()+
- 					 	 " Descripcion: " + uActual.getDescripcion()+
- 					     " Usuario:  " + uActual.getUsername()+ 
- 					     "<br>");
+ 			 mensaje += ("<tr><th>" + uActual.getIdtipomiembro()+ "</th>"+
+ 					 	 "<th>" + uActual.getDescripcion()+ "</th>"+
+ 					     "<th>" + uActual.getUsername()+ "</th></tr>");
  		}
  	}
 %> 
@@ -26,8 +26,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Consulta de Tipos de Miembros</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
-<%= mensaje %><br>
+<fieldset>
+<legend>Tipos de Miembros de la JRV</legend>
+<center><%= mensaje %></center>
+<a href="Main.jsp">Volver al menu</a>
+</fieldset>
+
 </body>
 </html>

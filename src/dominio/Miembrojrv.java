@@ -3,15 +3,16 @@ package dominio;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "miembrojrv", catalog = "tarea", schema = "")
-@NamedQuery(name = "Miembrojrv.findByNombres", query = "SELECT m FROM Miembrojrv m WHERE m.nombres = :nombres")
+@NamedQueries({
+@NamedQuery(name = "Miembrojrv.findAll", query = "SELECT m FROM Miembrojrv m"),
+@NamedQuery(name = "Miembrojrv.findByNombres", query = "SELECT m FROM Miembrojrv m WHERE m.nombres = :nombres")})
 
 public class Miembrojrv {
 	private String idmiembrojrv;
@@ -21,8 +22,6 @@ public class Miembrojrv {
 	private int idjrv;
 	private String idtipomiembro;
 	private String username;
-	
-	
 	
 	private Miembrojrv(){		
 	}

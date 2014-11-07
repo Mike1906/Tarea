@@ -1,5 +1,6 @@
 package negocio;
 
+import java.util.List;
 import dao.*;
 import dominio.*;
 
@@ -14,6 +15,20 @@ public class CtrlMiembrojrv {
 		}
 		else
 			return false ;
+	}
+	
+	public boolean eliminarMiembro(String miembrojrv) {
+		if (daoMiembro.daMiembroById(miembrojrv) != null) {
+			Miembrojrv miembro = daoMiembro.daMiembroById(miembrojrv) ;
+			daoMiembro.eliminar(miembro) ;
+			return true ;
+		}
+		else
+			return false ;
+	}
+	
+	public List<Miembrojrv> daMiembrojrv(){
+		return daoMiembro.daMiembrojrv() ;
 	}
 	
 	public Miembrojrv daMiembroByNombres(String nombres) {

@@ -24,10 +24,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
-<%= mensaje %>
-	<br><br>
-	<a href="CrearUsuario.html">Ingresar otro usuario</a>
+<fieldset>
+<legend>Inserta la informacion del Tipo de Miembro de la JRV</legend>
+  <div class="row">
+    <div class="small-8">      
+      <div class="row">        
+ 		<center><%=mensaje%><br><br>
+        <a role="button" aria-label="submit form" href="CrearUsuario.html" class="button">Ingresar otro usuario</a>
+        <a role="button" aria-label="submit form" href="Main.jsp" class="button">Volver al menu</a>	</center>
+      </div>
+    </div>
+  </div>      
+</fieldset>
 </body>
 </html>

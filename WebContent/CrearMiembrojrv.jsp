@@ -25,11 +25,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inserta</title>
+<title>Mensaje</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
-<%= mensaje %>
-	<br><br>
-	<a href="CrearMiembrojrv.html">Ingresar otro miembro</a>
+<fieldset>
+<legend>Inserta la informacion del Miembro de la JRV</legend>
+  <div class="row">
+    <div class="small-8">      
+      <div class="row">        
+ 		<center><%=mensaje%><br><br>
+        <a role="button" aria-label="submit form" href="CrearMiembrojrv.html" class="button">Ingresar otro miembro</a>
+        <a role="button" aria-label="submit form" href="Main.jsp" class="button">Volver al menu</a>	</center>
+      </div>
+    </div>
+  </div>      
+</fieldset>
 </body>
 </html>

@@ -38,10 +38,23 @@ public class UsuariosDAO {
 			sesion.close() ;
 		}
 	}
-	public List daUsuarios() {
+	public void eliminar(Usuarios user) {
+		try {
+			iniciaOperacion() ;
+			sesion.delete(user) ;
+			tx.commit() ;
+			sesion.flush() ;
+		} catch (HibernateException he) {
+			manejaExcepcion(he) ;
+			throw he ;
+		} finally {
+			sesion.close() ;
+		}
+	}
+	public List<Usuarios> daUsuarios() {
 		sesion = sessionFactory.openSession() ;
 		Query query = sesion.getNamedQuery("Usuarios.findAll");
-		List usuarios = query.list() ;
+		List<Usuarios> usuarios = query.list() ;
 		sesion.close() ;
 		return usuarios;
 	}

@@ -18,6 +18,16 @@ private UsuariosDAO daoUsuarios = new UsuariosDAO() ;
 			return false ;
 	}
 	
+	public boolean eliminarUsuario(String username) {
+		if (daoUsuarios.daUsuarioByUsername(username) != null) {
+			Usuarios user = daoUsuarios.daUsuarioByUsername(username) ;
+			daoUsuarios.eliminar(user) ;
+			return true ;
+		}
+		else
+			return false ;
+	}
+	
 	public List<Usuarios> daUsuarios(){
 		return daoUsuarios.daUsuarios() ;
 	}

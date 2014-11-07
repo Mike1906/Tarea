@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.List;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -52,20 +51,13 @@ public class TipoMiembroDAO {
 			sesion.close() ;
 		}
 	}
-	public List daTipoMiembro() {
+	public List<TipoMiembro> daTipoMiembro() {
 		sesion = sessionFactory.openSession() ;
 		Query query = sesion.getNamedQuery("TipoMiembro.findAll");
-		List tipomiembro = query.list() ;
+		List<TipoMiembro> tipomiembro = query.list() ;
 		sesion.close() ;
 		return tipomiembro;
-	}
-	/*public TipoMiembro daTipoMiembroById(String Idtipomiembro){
-		sesion = sessionFactory.openSession() ;
-		// Retorna la instancia persistente de la clase por medio del atributo identidad
-		TipoMiembro id = (TipoMiembro) sesion.get(TipoMiembro.class,new String(Idtipomiembro)) ;
-		sesion.close() ;
-		return id ;
-	}*/	
+	}	
 	
 	public TipoMiembro daTipoMiembroByDesc(String descripcion) {
 		sesion = sessionFactory.openSession() ;
