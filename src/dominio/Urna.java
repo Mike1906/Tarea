@@ -6,39 +6,40 @@ public class Urna {
 
 	private int idUrna;
 	private int idMunicipio;
+	private int idDepartamento;
 	private int numJunta;
 	private String presidente;
 	private String secretario;
 	private int cantVotosNulos;
-	private String usename;
-	private Date fecha;
-	private String userm;
-	private Date fechaM;
-	
-	
-	
+	private int cantVotosNoValidos;
+	private String userName;
+
+
+
+
 	public Urna() {
-	
+
 		// TODO Auto-generated constructor stub
 	}
 
 
 
-	public Urna(int idUrna, int idMunicipio, int numJunta, String presidente,
-			String secretario, int cantVotosNulos, String usename, Date fecha,
-			String userm, Date fechaM) {
+
+	public Urna(int idUrna, int idMunicipio, int idDepartamento, int numJunta,
+			String presidente, String secretario, int cantVotosNulos,
+			int cantVotosNoValidos, String userName) {
 		super();
 		this.idUrna = idUrna;
 		this.idMunicipio = idMunicipio;
+		this.idDepartamento = idDepartamento;
 		this.numJunta = numJunta;
 		this.presidente = presidente;
 		this.secretario = secretario;
 		this.cantVotosNulos = cantVotosNulos;
-		this.usename = usename;
-		this.fecha = fecha;
-		this.userm = userm;
-		this.fechaM = fechaM;
+		this.cantVotosNoValidos = cantVotosNoValidos;
+		this.userName = userName;
 	}
+
 
 
 
@@ -48,9 +49,11 @@ public class Urna {
 
 
 
+
 	public void setIdUrna(int idUrna) {
 		this.idUrna = idUrna;
 	}
+
 
 
 
@@ -60,9 +63,25 @@ public class Urna {
 
 
 
+
 	public void setIdMunicipio(int idMunicipio) {
 		this.idMunicipio = idMunicipio;
 	}
+
+
+
+
+	public int getIdDepartamento() {
+		return idDepartamento;
+	}
+
+
+
+
+	public void setIdDepartamento(int idDepartamento) {
+		this.idDepartamento = idDepartamento;
+	}
+
 
 
 
@@ -72,9 +91,11 @@ public class Urna {
 
 
 
+
 	public void setNumJunta(int numJunta) {
 		this.numJunta = numJunta;
 	}
+
 
 
 
@@ -84,9 +105,11 @@ public class Urna {
 
 
 
+
 	public void setPresidente(String presidente) {
 		this.presidente = presidente;
 	}
+
 
 
 
@@ -96,9 +119,11 @@ public class Urna {
 
 
 
+
 	public void setSecretario(String secretario) {
 		this.secretario = secretario;
 	}
+
 
 
 
@@ -108,59 +133,40 @@ public class Urna {
 
 
 
+
 	public void setCantVotosNulos(int cantVotosNulos) {
 		this.cantVotosNulos = cantVotosNulos;
 	}
 
 
 
-	public String getUsename() {
-		return usename;
+
+	public int getCantVotosNoValidos() {
+		return cantVotosNoValidos;
 	}
 
 
 
-	public void setUsename(String usename) {
-		this.usename = usename;
+
+	public void setCantVotosNoValidos(int cantVotosNoValidos) {
+		this.cantVotosNoValidos = cantVotosNoValidos;
 	}
 
 
 
-	public Date getFecha() {
-		return fecha;
+
+	public String getUserName() {
+		return userName;
 	}
 
 
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 
 
-	public String getUserm() {
-		return userm;
-	}
 
-
-
-	public void setUserm(String userm) {
-		this.userm = userm;
-	}
-
-
-
-	public Date getFechaM() {
-		return fechaM;
-	}
-
-
-
-	public void setFechaM(Date fechaM) {
-		this.fechaM = fechaM;
-	}
-	
-	
-	
-	
 }
