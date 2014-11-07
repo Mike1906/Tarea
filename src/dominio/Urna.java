@@ -1,7 +1,5 @@
 package dominio;
 
-import java.util.Date;
-
 public class Urna {
 
 	private int idUrna;
