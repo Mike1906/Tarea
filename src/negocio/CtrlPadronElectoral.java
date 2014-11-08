@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import dao.PadronElectoralDAO;
+import dominio.Jrv;
 import dominio.PadronElectoral;
 
 
@@ -20,6 +21,25 @@ public class CtrlPadronElectoral {
         } 
         else 
           return false ; 
+     } 
+     
+     
+     public boolean actualizaPadron(String dui, String nombre, String apellidos,String domicilio, 
+    		 String estadovotacion, int idurna,String username, Date fechanac) { 
+    	 if (daoPadron.daPadronByDui(dui) != null) {
+            PadronElectoral padron=new PadronElectoral();
+            padron.setDui(dui);
+            padron.setNombre(nombre);
+            padron.setApellidos(apellidos);
+            padron.setDomicilio(domicilio);
+            padron.setEstadovotacion(estadovotacion);
+            padron.setIdurna(idurna);
+            padron.setUsername(username);
+            padron.setFechanac(fechanac);
+            daoPadron.guardaActualiza(padron);
+              return true ;}
+    	 else
+    		 return false;
      } 
       
      public boolean borrarPadron(String dui) { 
