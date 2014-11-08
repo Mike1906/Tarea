@@ -175,8 +175,7 @@ public class Urna implements Serializable {
 	}
 
 
-
-
+//
 	public void setCantVotosNoValidos(int cantVotosNoValidos) {
 		this.cantVotosNoValidos = cantVotosNoValidos;
 	}
