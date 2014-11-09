@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Ingresar padron electoral</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
+</head>
+<body>
+	<form action="IngresarPadron.jsp" method="post">
+		<fieldset>
+			<legend>Ingresa la información correspondiente al padrón
+				electoral</legend>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">DUI:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label" placeholder="Digitar el dui"
+						name="dui" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Nombre:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label" placeholder="Digitar el nombre"
+						name="nombres" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Apellido:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el apellido" name="apellidos" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Domicilio:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el domicilio" name="domicilio" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Fecha de
+						nacimiento:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Fecha de nacimiento (dd-mm-yyyy)" name="fechanac"
+						required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Estado de
+						votación:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el estado de votación" name="estado" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Id de urna:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el id de urna" name="idurna" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Nombre de
+						usuario:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el nombre de usuario" name="username"
+						required>
+				</div>
+				<input type="submit" role="button" aria-label="submit form"
+					value="Ingresar padron electoral" class="button"> <a
+					role="button" aria-label="submit form" href="Main.jsp"
+					class="button">Volver al menu</a>
+			</div>
+			
+			</fieldset>
+	</form>
+</body>
+</html>

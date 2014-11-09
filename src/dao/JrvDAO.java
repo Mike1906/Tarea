@@ -103,4 +103,15 @@ public class JrvDAO {
 		    		      sesion.close() ; 
 		    		      return jrv ; 
 		    		     }
+	    		     
+	    		     public Jrv daJrvByClave(String dui,String idmunicipio,String iddepto) { 
+		    		      sesion = sessionFactory.openSession() ; 
+		    		      Query consulta = sesion.getNamedQuery("jrv.findByClave"); 
+		    		      consulta.setParameter("dui", dui) ; 
+		    		      consulta.setParameter("idmunicipio", idmunicipio);
+		    		      consulta.setParameter("iddepto", iddepto);
+		    		      Jrv jrv = (Jrv) consulta.uniqueResult(); 
+		    		      sesion.close() ; 
+		    		      return jrv ; 
+		    		     }
 }

@@ -1,52 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-  <%@ page import="dominio.*" %>
-     <%@ page import="negocio.*" %>
-     <%@ page import="java.text.*" %>
-     <%@ page import="java.util.*" %>
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="dominio.*"%>
+<%@ page import="negocio.*"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.*"%>
 <%
 String mensaje="";
 CtrlPadronElectoral padron=new CtrlPadronElectoral();
-
-String dui=request.getParameter("dui");
-String nombre=request.getParameter("nombre");
-String apellidos=request.getParameter("apellidos");
-String domicilio=request.getParameter("domicilio");
-String estadovotacion=request.getParameter("estadovotacion");
 int idurna=Integer.parseInt(request.getParameter("idurna"));
-String username=request.getParameter("username");
+String dui=request.getParameter("dui");
+String nombre=request.getParameter("nombres");
+String apellidos=request.getParameter("apellidos");
 String sfechanac=request.getParameter("fechanac");
-
 SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
 Date fechanac = format.parse(sfechanac);
 
+String domicilio=request.getParameter("domicilio");
+String estadovotacion=request.getParameter("estado");
+String username=request.getParameter("username");
 Urna urna=new Urna();
 urna.setIdUrna(idurna);
 
-boolean exito=padron.actualizaPadron(dui, nombre, apellidos, domicilio, estadovotacion, urna, username, fechanac);
 
+
+boolean exito=padron.crearPadron(dui,nombre,apellidos,domicilio,estadovotacion,urna,username,fechanac);
 if (exito==true)
-   mensaje="se actualizo el Padron Electoral correctamente";
+   mensaje="se ingreso el padron correctamente";
 else
-   mensaje="hubo un error al actualizar el Padron Electoral, no existe el dui";	
+   mensaje="hubo un error al ingresar el padron, ya existe ese dui";	
 
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Actualizar padrón electoral</title>
+<title>Ingresar padrón electoral</title>
 <link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
 	<fieldset>
-		<legend>Actualiza la información del padrón electoral</legend>
+		<legend>Ingresa la información del padrón electoral</legend>
 		<div class="row">
 			<div class="small-8">
 				<div class="row">
 					<center><%=mensaje%><br>
 						<br> <a role="button" aria-label="submit form"
-							href="ActualizarPadron.html" class="button">actualizar otro
+							href="IngresarPadron.html" class="button">Ingresar otro
 							padrón electoral</a> <a role="button" aria-label="submit form"
 							href="Main.jsp" class="button">Volver al menu</a>
 					</center>

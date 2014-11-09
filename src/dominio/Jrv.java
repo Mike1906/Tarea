@@ -22,7 +22,8 @@ import javax.persistence.NamedQuery;
 @NamedQueries({ 
  @NamedQuery(name = "jrv.findAll", query = "SELECT j FROM Jrv j"), 
  @NamedQuery(name = "jrv.findById", query = "SELECT j FROM Jrv j WHERE j.idjrv = :idjrv"),
- @NamedQuery(name = "jrv.findByDui", query = "SELECT j FROM Jrv j WHERE j.dui = :dui")
+ @NamedQuery(name = "jrv.findByDui", query = "SELECT j FROM Jrv j WHERE j.dui = :dui"),
+ @NamedQuery(name = "jrv.findByClave", query = "SELECT j FROM Jrv j WHERE j.dui = :dui and j.idmunicipio=:idmunicipio and j.iddepto=:iddepto")
  }) 
 public class Jrv implements Serializable{
 	private static final long serialVersionUID = 1L;

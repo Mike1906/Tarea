@@ -12,7 +12,7 @@ public class CtrlJrv {
 	 private JrvDAO daoJrv = new JrvDAO() ;  
      
      public boolean crearJrv(String iddepto, String idmunicipio, String dui, String username) { 
-    	 if (daoJrv.daJrvByDui(dui) == null) {
+    	 if (daoJrv.daJrvByClave(dui,idmunicipio,iddepto) == null) {
             Jrv jrv = new Jrv(iddepto, idmunicipio, dui,  username  ) ; 
               daoJrv.guardaActualiza(jrv) ; 
               return true ;}
@@ -31,6 +31,20 @@ public class CtrlJrv {
         
      } 
       
+     public boolean actualizaJrv(String idjrv,String iddepto, String idmunicipio, String dui,String username) { 
+    	 if (daoJrv.daJrvByClave(dui,idmunicipio,iddepto) != null) {
+            Jrv jrv = new Jrv() ; 
+            jrv.setIdjrv(Short.valueOf(idjrv));
+            jrv.setIddepto(iddepto);
+            jrv.setIdmunicipio(idmunicipio);
+            jrv.setDui(dui);
+            jrv.setUsername(username);
+              daoJrv.guardaActualiza(jrv) ; 
+              return true ;}
+    	 else
+    		 return false;
+     } 
+     
      public List<Jrv> daJrv(){ 
          return daoJrv.daJrv() ; 
      } 

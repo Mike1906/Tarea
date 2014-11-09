@@ -7,15 +7,16 @@ import java.util.List;
 import dao.PadronElectoralDAO;
 import dominio.Jrv;
 import dominio.PadronElectoral;
+import dominio.Urna;
 
 
 public class CtrlPadronElectoral {
 	 private PadronElectoralDAO daoPadron = new PadronElectoralDAO() ;  
      
      public boolean crearPadron(String dui, String nombre, String apellidos,
-    		 String domicilio,String estadovotacion,int idurna, String username,Date fechanac) { 
+    		 String domicilio,String estadovotacion,Urna urna, String username,Date fechanac) { 
         if (daoPadron.daPadronByDui(dui) == null ) { 
-         PadronElectoral padron = new PadronElectoral(dui,nombre,apellidos,domicilio,estadovotacion,idurna,username,fechanac); 
+         PadronElectoral padron = new PadronElectoral(dui,nombre,apellidos,domicilio,estadovotacion,urna,username,fechanac); 
               daoPadron.guardaActualiza(padron) ; 
               return true;
         } 
@@ -25,7 +26,7 @@ public class CtrlPadronElectoral {
      
      
      public boolean actualizaPadron(String dui, String nombre, String apellidos,String domicilio, 
-    		 String estadovotacion, int idurna,String username, Date fechanac) { 
+    		 String estadovotacion, Urna urna,String username, Date fechanac) { 
     	 if (daoPadron.daPadronByDui(dui) != null) {
             PadronElectoral padron=new PadronElectoral();
             padron.setDui(dui);
@@ -33,7 +34,7 @@ public class CtrlPadronElectoral {
             padron.setApellidos(apellidos);
             padron.setDomicilio(domicilio);
             padron.setEstadovotacion(estadovotacion);
-            padron.setIdurna(idurna);
+            padron.setUrna(urna);
             padron.setUsername(username);
             padron.setFechanac(fechanac);
             daoPadron.guardaActualiza(padron);

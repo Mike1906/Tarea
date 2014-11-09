@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Eliminar padron</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
+</head>
+<body>
+	<form action="EliminarPadron.jsp" method="post">
+		<fieldset>
+			<legend>Eliminar la información correspondiente al padrón
+				electoral</legend>
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">DUI:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Dui del padron a eliminar" name="dui" required>
+				</div>
+				<input type="submit" role="button" aria-label="submit form"
+					value="Eliminar padron electoral" class="button"> <a
+					role="button" aria-label="submit form" href="Main.jsp"
+					class="button">Volver al menu</a>
+			</div>
+
+		</fieldset>
+	</form>
+</body>
+</html>
