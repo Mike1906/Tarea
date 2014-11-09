@@ -3,26 +3,106 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar padron electoral</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
 <form action="ActualizarPadron.jsp" method="post">
-DUI:
-<input type="text" name="dui"/><br>
-nombres:
-<input type="text" name="nombre"/><br>
-apellidos:
-<input type="text" name="apellidos"/><br>
-fecha nacimiento ("dd-mm-yyyy"):
-<input type="text" name="fechanac"/><br>
-domicilio:
-<input type="text" name="domicilio"/><br>
-estado votacion:
-<input type="text" name="estadovotacion"/><br>
-id de urna:
-<input type="text" name="idurna"/><br>
-username:
-<input type="text" name="username"/><br>
-<input type="submit" value="Actualizar Padron"/><br>
+
+<fieldset>
+			<legend>Actualizar la información correspondiente al padrón
+				electoral</legend>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">DUI:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label" placeholder="Digitar el dui"
+						name="dui" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Nombre:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label" placeholder="Digitar el nombre"
+						name="nombre" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Apellido:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el apellido" name="apellidos" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Domicilio:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el domicilio" name="domicilio" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Fecha de
+						nacimiento:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Fecha de nacimiento (dd-mm-yyyy)" name="fechanac"
+						required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Estado de
+						votación:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el estado de votación" name="estadovotacion" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Id de urna:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el id de urna" name="idurna" required>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="small-3 columns">
+					<label for="right-label" class="right inline">Nombre de
+						usuario:</label>
+				</div>
+				<div class="small-9 columns">
+					<input type="text" id="right-label"
+						placeholder="Digitar el nombre de usuario" name="username"
+						required>
+				</div>
+				<input type="submit" role="button" aria-label="submit form"
+					value="Actualizar padron electoral" class="button"> <a
+					role="button" aria-label="submit form" href="Main.jsp"
+					class="button">Volver al menu</a>
+			</div>
+			
+			</fieldset>
+
 </form>
 </body>
 </html>
