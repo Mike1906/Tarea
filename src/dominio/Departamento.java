@@ -24,7 +24,7 @@ public class Departamento {
  
  public Departamento(String nombdepto, String iddepto, String zonageografica,String username){		
 		this.nombdepto = nombdepto;
-		this.iddepto = idepto;
+		this.iddepto = iddepto;
 		this.zonageografica = zonageografica;
 		this.username = username;
 	}

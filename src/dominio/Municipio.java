@@ -23,7 +23,7 @@ public class Municipio {
  
  public Municipio(String idmunicipio, String iddepto, String nombmunicipio,String username){		
 		this.idmunicipio = idmunicipio;
-		this.iddepto = idepto;
+		this.iddepto = iddepto;
 		this.nombmunicipio = nombmunicipio;
 		this.username = username;
 	}
