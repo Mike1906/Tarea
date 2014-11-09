@@ -32,7 +32,7 @@
 					<li><a href="#">Departamento</a></li>
 					<li><a href="#">Municipio</a></li>
 					<li><a href="ConsultarJrv.jsp">JRV</a></li>
-					<li><a href="#">Miembro JRV</a></li>
+					<li><a href="ConsultarMiembrojrv.jsp">Miembro JRV</a></li>
 					<li><a href="ConsultarTipoMiembro.jsp">Tipo Miembro</a></li>
 					<li><a href="ConsultarPadron.jsp">Padron Electoral</a></li>
 					<li><a href="#">Votacion</a></li>
@@ -45,8 +45,8 @@
 					<li><a href="#">Departamento</a></li>
 					<li><a href="#">Municipio</a></li>
 					<li><a href="ActualizarJrv.html">JRV</a></li>
-					<li><a href="">Miembro JRV</a></li>
-					<li><a href="#">Tipo Miembro</a></li>
+					<li><a href="ActualizarMiembrojrv.html">Miembro JRV</a></li>
+					<li><a href="ActualizarTipoMiembro.html">Tipo Miembro</a></li>
 					<li><a href="ActualizarPadron.html">Padron Electoral</a></li>
 					<li><a href="#">Votacion</a></li>
 					<li><a href="#">Urna</a></li>
@@ -58,7 +58,7 @@
 					<li><a href="#">Departamento</a></li>
 					<li><a href="#">Municipio</a></li>
 					<li><a href="EliminarJrv.html">JRV</a></li>
-					<li><a href="#">Miembro JRV</a></li>
+					<li><a href="BorrarMiembrojrv.html">Miembro JRV</a></li>
 					<li><a href="BorrarTipoMiembro.html">Tipo Miembro</a></li>
 					<li><a href="EliminarPadron.html">Padron Electoral</a></li>
 					<li><a href="#">Votacion</a></li>
@@ -69,6 +69,7 @@
 				<ul class="dropdown">
 					<li><a href="CrearUsuario.html">Crear Usuario</a></li>
 					<li><a href="ConsultarUsuario.jsp">Consultar Usurios</a></li>
+					<li><a href="BorrarUsuario.html">Borrar Usuario</a></li> 
 				</ul></li>
 			<li class="divider hide-for-small"></li>
 			<li><a href="login.jsp">Cerrar Sesion</a></li>

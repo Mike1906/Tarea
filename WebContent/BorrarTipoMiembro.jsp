@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="negocio.*" %>
 <%
-	String des = request.getParameter("des");	
+	String id = request.getParameter("id");	
 	
 	CtrlTipoMiembro ctrl = new CtrlTipoMiembro();
 
-	boolean exito = ctrl.eliminarTipoMiembro(des);
+	boolean exito = ctrl.eliminarTipoMiembro(id);
 
 	String mensaje;
 	
@@ -28,7 +28,7 @@
   <div class="row">
     <div class="small-8">      
       <div class="row">        
- <center>       <%=mensaje%><br><br>
+ <center><%=mensaje%><br><br>
         <a role="button" aria-label="submit form" href="BorrarTipoMiembro.html" class="button">Borrar otro tipo de miembro</a>
         <a role="button" aria-label="submit form" href="Main.jsp" class="button">Volver al menu</a></center>
       </div>

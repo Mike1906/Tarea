@@ -24,7 +24,7 @@ public class TipoMiembro implements Serializable{
 	private String username;
 		
 	
-	private TipoMiembro(){
+	public TipoMiembro(){
 		
 	}
 	public TipoMiembro(String idtipomiembro, String descripcion, String username) {

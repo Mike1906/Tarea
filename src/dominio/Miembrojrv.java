@@ -23,7 +23,7 @@ public class Miembrojrv {
 	private String idtipomiembro;
 	private String username;
 	
-	private Miembrojrv(){		
+	public Miembrojrv(){		
 	}
 
 	public Miembrojrv(String idmiembrojrv, String nombres, String apellidop,String apellidom, int idjrv, String idtipomiembro, String username) {		

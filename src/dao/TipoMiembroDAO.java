@@ -51,6 +51,14 @@ public class TipoMiembroDAO {
 			sesion.close() ;
 		}
 	}
+	public TipoMiembro daTipoMiembroById(String idtipomiembro){
+		sesion = sessionFactory.openSession() ;
+		// Retorna la instancia persistente de la clase por medio del atributo identidad
+		TipoMiembro id = (TipoMiembro) sesion.get(TipoMiembro.class,new String(idtipomiembro)) ;
+		sesion.close() ;
+		return id ;
+	}
+	
 	public List<TipoMiembro> daTipoMiembro() {
 		sesion = sessionFactory.openSession() ;
 		Query query = sesion.getNamedQuery("TipoMiembro.findAll");
