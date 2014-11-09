@@ -21,7 +21,7 @@ SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
 Date fechanac = format.parse(sfechanac);
 
 Urna urna=new Urna();
-urna.setIdUrna(idurna);
+urna.setIdurna(idurna);
 
 boolean exito=padron.actualizaPadron(dui, nombre, apellidos, domicilio, estadovotacion, urna, username, fechanac);
 

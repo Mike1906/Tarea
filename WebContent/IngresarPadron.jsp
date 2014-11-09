@@ -19,7 +19,7 @@ String domicilio=request.getParameter("domicilio");
 String estadovotacion=request.getParameter("estado");
 String username=request.getParameter("username");
 Urna urna=new Urna();
-urna.setIdUrna(idurna);
+urna.setIdurna(idurna);
 
 
 
