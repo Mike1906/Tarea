@@ -23,7 +23,7 @@ import javax.persistence.Table;
 
 public class Urna implements Serializable {
 
-	private String idurna;  
+	private int idurna;  
 	private int idmunicipio;  
 	private int iddepto;  
 	private int numjunta;  
@@ -36,7 +36,7 @@ public class Urna implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Urna(String idurna, int idmunicipio, int iddepto, int numjunta,
+	public Urna(int idurna, int idmunicipio, int iddepto, int numjunta,
 			String presidente, String secretario, int cantvotosnulos,
 			int cantvotosnovalid, int username) {
 		super();
@@ -55,12 +55,12 @@ public class Urna implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "idurna")
-	public String getIdurna() {
+	public int getIdurna() {
 		return idurna;
 	}
 	
 	
-	public void setIdurna(String idurna) {
+	public void setIdurna(int idurna) {
 		this.idurna = idurna;
 	}
 	

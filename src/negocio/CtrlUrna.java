@@ -10,7 +10,7 @@ public class CtrlUrna {
 
 	private UrnaDAO daoUrna = new UrnaDAO() ;
 
-	public boolean  crearUrna (String idurna, int idmunicipio, int iddepto, int numjunta,
+	public boolean  crearUrna (int idurna, int idmunicipio, int iddepto, int numjunta,
 			String presidente, String secretario, int cantvotosnulos,
 			int cantvotosnovalid, int username)  {
 		if (daoUrna.daUrna() == null) {
