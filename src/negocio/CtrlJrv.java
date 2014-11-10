@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
 
 import dao.JrvDAO;
 import dominio.Jrv;
@@ -66,7 +68,7 @@ public class CtrlJrv {
      } 
      
      
-     public void reporteJrv() throws JRException{
+    /* public void reporteJrv() throws JRException{
     	 JasperReport jasperReport = JasperCompileManager.compileReport("C:/ConsultaJrv.jrxml");
     	    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,new HashMap(), new JREmptyDataSource());
     	    JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ConsultaJrv.pdf");
@@ -76,10 +78,30 @@ public class CtrlJrv {
     	   }catch (IOException ex) {
     	        ex.printStackTrace();
     	   }
+     }*/
+     
+     public void reporteJrv() {
+    	 String reportPath = "C:/ConsultaJrv.jasper";
+         Map<String, Object> params = new HashMap<String, Object>();
+         Connection connection;
+
+        try {
+           // JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
+              Class.forName("com.mysql.jdbc.Driver");
+              connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea","root","root");
+            System.out.println("Filling report...");
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ConsultaJrv.pdf");
+            File path = new File ("C:/ConsultaJrv.pdf");
+	        Desktop.getDesktop().open(path);
+           // JasperViewer.viewReport(jasperPrint, false);
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
      }
-     
-    
-     
+
      
      public List<Jrv> daJrv(){ 
          return daoJrv.daJrv() ; 

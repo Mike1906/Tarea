@@ -4,9 +4,13 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.DriverManager;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.mysql.jdbc.Connection;
 
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -15,6 +19,7 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 import dao.PadronElectoralDAO;
 import dominio.Jrv;
@@ -65,7 +70,7 @@ public class CtrlPadronElectoral {
          return false ; 
      } 
       
-     public void reportePadron() throws JRException{
+     /*public void reportePadron() throws JRException{
     	 JasperReport jasperReport = JasperCompileManager.compileReport("C:/ReportePadron.jrxml");
     	    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,new HashMap(), new JREmptyDataSource());
     	    JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ReportePadron.pdf");
@@ -75,7 +80,30 @@ public class CtrlPadronElectoral {
     	   }catch (IOException ex) {
     	        ex.printStackTrace();
     	   }
-     }
+     }*/
+     
+     public void reportePadron() throws JRException{
+    	 String reportPath = "C:/ReportePadron.jasper";
+         Map<String, Object> params = new HashMap<String, Object>();
+         Connection connection;
+
+        try {
+
+           // JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
+              Class.forName("com.mysql.jdbc.Driver");
+              connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea","root","root");
+
+            System.out.println("Filling report...");
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ReportePadron.pdf");
+            File path = new File ("C:/ReportePadron.pdf");
+	        Desktop.getDesktop().open(path);
+        //    JasperViewer.viewReport(jasperPrint, false);
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+ }
      
      public List<PadronElectoral> daPadrones(){ 
          return daoPadron.daPadron() ; 
