@@ -10,7 +10,7 @@ String iddepto=request.getParameter("iddepto");
 String zonageografica=request.getParameter("zonageografica");
 String username=request.getParameter("username");
 
-boolean exito= departmanento.actualizaDepartamento(nombdepto, iddepto, zonageografica, username); 
+boolean exito= departamento.actualizar(nombdepto, iddepto, zonageografica, username); 
 if (exito==true)
    mensaje="se actualizo el Departamento correctamente";
 else

@@ -5,7 +5,7 @@
 	
 	CtrlMunicipio ctrl = new CtrlMunicipio();
 
-	boolean exito = ctrl.eliminarMunicipio(idmunicipio);
+	boolean exito = ctrl.eliminar(id);
 
 	String mensaje;
 	

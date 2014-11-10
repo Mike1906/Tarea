@@ -20,33 +20,26 @@ public class CtrlDepartamento {
 			return false ;
 	}
 	
-	public boolean eliminarMiembro(String departamento) {
-		if (daoMiembro.daMiembroById(departamento) != null) {
-			Departamento miembro = daoMiembro.daMiembroById(departamento) ;
+	public boolean eliminar(String nombdepto) {
+		if (daoMiembro.daDepartamentoByNombres(nombdepto) != null) {
+			Departamento miembro = daoMiembro.daDepartamentoByNombres(nombdepto) ;
 			daoMiembro.eliminar(miembro) ;
 			return true ;
 		}
 		else
 			return false ;
 	}
-	public boolean actualizar(String nombdepto, String iddepto,String zonageografica, String username) { 
-	   	 if (daoMiembro.daMiembroById(iddepto) != null) {
-	           Departamento miembro = new Departamento();
-	          miembro.setiddepto(iddepto);
-	          miembro.setnombdepto(nombdepto);
-	          miembro.setzonageografica(zonageografica);
-	          miembro.setUsername(username);
-	          daoMiembro.guardaActualiza(miembro);
-	           return true ;}
-	   	 else
-	   		 return false;
+	public boolean actualizar(String nombdepto, String iddepto,String zonageografica, String username) {
+		if (daoMiembro.daDepartamentoByNombres(nombdepto) != null) {
+			Departamento miembro = new Departamento(nombdepto,iddepto,zonageografica,username);
+			daoMiembro.guardaActualiza(miembro);
+			return true ;
+		}
+		else
+			return false ;
 	} 
 	
 	public List<Departamento> daDepartamento(){
 		return daoMiembro.daDepartamento() ;
-	}
-	
-	public Departamento daMiembroByNombres(String nombres) {
-		return daoMiembro.daMiembroByNombres(nombres) ;
-	}
+	}	
 }

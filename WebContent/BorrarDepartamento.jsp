@@ -5,7 +5,7 @@
 	
 	CtrlDepartamento ctrl = new CtrlDepartamento();
 
-	boolean exito = ctrl.eliminarDepartamento(iddepto);
+	boolean exito = ctrl.eliminar(id);
 
 	String mensaje;
 	
