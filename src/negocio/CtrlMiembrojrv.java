@@ -8,7 +8,7 @@ public class CtrlMiembrojrv {
 	private MiembrojrvDAO daoMiembro = new MiembrojrvDAO() ;
 
 	public boolean crearMiembrojrv(String idmiembro, String nombres,String apellidop, String apellidom,int idjrv, String idtipom, String username) {
-		if (daoMiembro.daMiembroByNombres(nombres) == null) {
+		if (daoMiembro.daMiembroById(idmiembro) == null) {
 			Miembrojrv miembro = new Miembrojrv(idmiembro,nombres,apellidop,apellidom,idjrv,idtipom, username);
 			daoMiembro.guardaActualiza(miembro) ;
 			return true ;
@@ -26,21 +26,15 @@ public class CtrlMiembrojrv {
 		else
 			return false ;
 	}
-	public boolean actualizar(String idmiembro, String nombres,String apellidop, String apellidom,int idjrv, String idtipom, String username) { 
-	   	 if (daoMiembro.daMiembroById(idmiembro) != null) {
-	           Miembrojrv miembro = new Miembrojrv();
-	           miembro.setIdmiembrojrv(idmiembro);
-	           miembro.setNombres(nombres);
-	           miembro.setApellidop(apellidop);
-	           miembro.setApellidom(apellidom);
-	           miembro.setIdjrv(idjrv);
-	           miembro.setIdtipomiembro(idtipom);
-	           miembro.setUsername(username);
-	           daoMiembro.guardaActualiza(miembro);
-	           return true ;}
-	   	 else
-	   		 return false;
-	} 
+	public boolean actualizar(String idmiembro, String nombres,String apellidop, String apellidom,int idjrv, String idtipom, String username) {
+		if (daoMiembro.daMiembroById(idmiembro) != null) {
+			Miembrojrv miembro = new Miembrojrv(idmiembro,nombres,apellidop,apellidom,idjrv,idtipom, username);
+			daoMiembro.guardaActualiza(miembro) ;
+			return true ;
+		}
+		else
+			return false ;
+	}  
 	
 	public List<Miembrojrv> daMiembrojrv(){
 		return daoMiembro.daMiembrojrv() ;

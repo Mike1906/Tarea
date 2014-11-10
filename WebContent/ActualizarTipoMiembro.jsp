@@ -14,7 +14,7 @@
 	if (exito) {
 		mensaje = "¡¡ Se actualizo el Tipo de Miembro !!";
 	}else {
-		mensaje = "¡¡ No se pudo actualizar, codigo (id) incorrecto !!";
+		mensaje = "¡¡ No se pudo actualizar, No existe ese Tipo de Miembro !!";
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
