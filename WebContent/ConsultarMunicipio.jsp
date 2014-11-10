@@ -8,7 +8,7 @@
 	CtrlMunicipio municipio=new CtrlMunicipio();
 List lista=municipio.daMunicipio();
 	int numero = lista.size();
-	municipio.reporteMunicipio(); 
+	 
  	if (lista.isEmpty())
  		 mensaje = "No Hay Datos";
  	else {
@@ -19,7 +19,7 @@ List lista=municipio.daMunicipio();
  			 mensaje += ("<tr><th>" + muniactual.getiddepto()+ "</th>"+
  					 	 "<th>" + muniactual.getidmunicipio()+ "</th>"+
  					 	"<th>" + muniactual.getnombmunicipio()+ "</th>"+
- 					 	"<th>" + deparactual.getUsername() + "</th></tr>");
+ 					 	"<th>" + muniactual.getUsername() + "</th></tr>");
  		}
  	}
 %>

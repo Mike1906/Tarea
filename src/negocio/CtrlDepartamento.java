@@ -11,9 +11,9 @@ public class CtrlDepartamento {
 	private DepartamentoDAO daoMiembro = new DepartamentoDAO() ;
 
 	public boolean crearDepartamento(String nombdepto, String iddepto,String zonageografica, String username) {
-		if (daoMiembro.daMiembroByNombres(nombres) == null) {
-			Municipio miembro = new Municipio(nombdepto,iddepto,zonageografica,username);
-			daoMiembro.guardaActualiza(miembro) ;
+		if (daoMiembro.daDepartamentoByNombres(nombdepto) == null) {
+			Departamento miembro = new Departamento(nombdepto,iddepto,zonageografica,username);
+			daoMiembro.guardaActualiza(miembro);
 			return true ;
 		}
 		else

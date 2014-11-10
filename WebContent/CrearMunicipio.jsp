@@ -4,13 +4,13 @@
      <%@ page import="negocio.*" %>
  <%
 String mensaje="";
-CtrlMunicipio municipicio=new CtrlMunicipio();
+CtrlMunicipio municipio=new CtrlMunicipio();
 String idmunicipio=request.getParameter("idmunicipio");
 String iddepto=request.getParameter("iddepto");
 String nombmunicipio=request.getParameter("nombmunicipio");
 String username=request.getParameter("username");
 
-boolean exito= municipio.CrearMunicipio(idmunicipio, iddepto, nombmunicipio, username); 
+boolean exito= municipio.crearMunicipio(idmunicipio, iddepto, nombmunicipio, username); 
 if (exito==true)
    mensaje="se creo el municipio correctamente";
 else

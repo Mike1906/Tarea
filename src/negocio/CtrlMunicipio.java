@@ -7,7 +7,7 @@ public class CtrlMunicipio {
 	private MunicipioDAO daoMiembro = new MunicipioDAO() ;
 
 	public boolean crearMunicipio(String idmunicipio, String iddepto,String nombmunicipio, String username) {
-		if (daoMiembro.daMiembroByNombres(nombres) == null) {
+		if (daoMiembro.daMiembroByNombres(idmunicipio) == null) {
 			Municipio miembro = new Municipio(idmunicipio,iddepto,nombmunicipio,username);
 			daoMiembro.guardaActualiza(miembro) ;
 			return true ;

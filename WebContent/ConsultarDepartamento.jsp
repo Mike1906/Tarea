@@ -8,7 +8,7 @@
 	CtrlDepartamento departamento=new CtrlDepartamento();
 List lista=departamento.daDepartamento();
 	int numero = lista.size();
-	departamento.reporteDepartamento(); 
+	
  	if (lista.isEmpty())
  		 mensaje = "No Hay Datos";
  	else {

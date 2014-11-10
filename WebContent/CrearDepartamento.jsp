@@ -10,7 +10,7 @@ String iddepto=request.getParameter("iddepto");
 String zonageografica=request.getParameter("zonageografica");
 String username=request.getParameter("username");
 
-boolean exito= departmanento.crearDepartamento(nombdepto, iddepto, zonageografica, username); 
+boolean exito = departamento.crearDepartamento(nombdepto, iddepto, zonageografica, username); 
 if (exito==true)
    mensaje="se creo el Departamento correctamente";
 else
