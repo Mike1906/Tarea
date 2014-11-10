@@ -92,7 +92,6 @@ public class CtrlPadronElectoral {
            // JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
               Class.forName("com.mysql.jdbc.Driver");
               connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea","root","root");
-
             System.out.println("Filling report...");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
             JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ReportePadron.pdf");
