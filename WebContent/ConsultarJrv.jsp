@@ -3,13 +3,14 @@
 <%@ page import="negocio.*"%>
 <%@ page import="dominio.*"%>
 <%@ page import="java.util.*"%>
+
 <%!String mensaje = "";%>
 <%
 	CtrlJrv jrv = new CtrlJrv();
 	List lista = jrv.daJrv();
 
 	int numero = lista.size();
-
+	jrv.reporteJrv();
 	if (lista.isEmpty())
 		mensaje = "No Hay Datos";
 	else {

@@ -1,7 +1,27 @@
 package negocio;
 
 
+import java.awt.Desktop;
+import java.io.File;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.mysql.jdbc.Connection;
+
+import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import dao.JrvDAO;
 import dominio.Jrv;
@@ -44,6 +64,22 @@ public class CtrlJrv {
     	 else
     		 return false;
      } 
+     
+     
+     public void reporteJrv() throws JRException{
+    	 JasperReport jasperReport = JasperCompileManager.compileReport("C:/ConsultaJrv.jrxml");
+    	    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,new HashMap(), new JREmptyDataSource());
+    	    JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ConsultaJrv.pdf");
+    	    try {
+    	        File path = new File ("C:/ConsultaJrv.pdf");
+    	        Desktop.getDesktop().open(path);
+    	   }catch (IOException ex) {
+    	        ex.printStackTrace();
+    	   }
+     }
+     
+    
+     
      
      public List<Jrv> daJrv(){ 
          return daoJrv.daJrv() ; 

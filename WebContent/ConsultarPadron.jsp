@@ -8,7 +8,7 @@
 	CtrlPadronElectoral padron=new CtrlPadronElectoral();
 List lista=padron.daPadrones();
 	int numero = lista.size();
-	 
+	padron.reportePadron(); 
  	if (lista.isEmpty())
  		 mensaje = "No Hay Datos";
  	else {
@@ -35,6 +35,7 @@ List lista=padron.daPadrones();
 <link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
+
 	<fieldset>
 		<legend>Padrones electorales ingresados</legend>
 		<center><%=mensaje%></center>
