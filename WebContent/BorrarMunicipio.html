@@ -1,10 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Borrar Municipio</title>
+<link rel="stylesheet" href="foundation/css/foundation.css">
 </head>
 <body>
-
+<form action = "BorrarMunicipio.jsp">		 
+<fieldset>
+<legend>Borrar Municipio</legend>
+  <div class="row">
+    <div class="small-8">      
+      <div class="row">
+        <div class="small-3 columns">
+          <label for="right-label" class="right inline">ID Municipio:</label>
+        </div>
+        <div class="small-9 columns">
+          <input type="text" id="right-label" placeholder="Nombre del municipio" name="nombmunicipio" required>
+        </div><center>
+        <input type = "submit" role="button" aria-label="submit form" value="Borrar Municipio" class="button">
+        <a role="button" aria-label="submit form" href="Main.jsp" class="button">Volver al menu</a></center>
+      </div>
+    </div>
+  </div>      
+</fieldset>
+</form>
 </body>
 </html>
