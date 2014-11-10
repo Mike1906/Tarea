@@ -32,6 +32,19 @@ public class CtrlUrna {
 			return false ;
 	}*/
 	
+	public boolean actualizar(int idurna, int idmunicipio, int iddepto, int numjunta,
+			String presidente, String secretario, int cantvotosnulos,
+			int cantvotosnovalid, int username) {
+		if (daoUrna.daUrnaById(idurna) != null) {
+			Urna urna = new Urna();
+			daoUrna.guardaActualiza(urna);
+			return true ;
+		}
+		else
+			return false ;
+	} 
+	
+	
 	public List<Urna> daUrna(){
 		return daoUrna.daUrna() ;
 	}
