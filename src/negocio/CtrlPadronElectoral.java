@@ -83,7 +83,7 @@ public class CtrlPadronElectoral {
      }*/
      
      public void reportePadron() throws JRException{
-    	 String reportPath = "C:/ReportePadron.jasper";
+    	 String reportPath = "/ReportePadron.jasper";
          Map<String, Object> params = new HashMap<String, Object>();
          Connection connection;
 
@@ -91,7 +91,7 @@ public class CtrlPadronElectoral {
 
            // JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
               Class.forName("com.mysql.jdbc.Driver");
-              connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea","root","root");
+              connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea?zeroDateTimeBehavior=convertToNull","root","root");
             System.out.println("Filling report...");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
             JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ReportePadron.pdf");

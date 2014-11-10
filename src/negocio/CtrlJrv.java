@@ -81,10 +81,10 @@ public class CtrlJrv {
      }*/
      
      public void reporteJrv() {
-    	 String reportPath = "C:/ConsultaJrv.jasper";
+    	 String reportPath = "/ConsultaJrv.jasper";
          Map<String, Object> params = new HashMap<String, Object>();
          Connection connection;
-
+         
         try {
            // JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
               Class.forName("com.mysql.jdbc.Driver");
