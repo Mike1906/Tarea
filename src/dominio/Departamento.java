@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "departamento", catalog = "tarea", schema = "")
 @NamedQueries({
 @NamedQuery(name = "Departamento.findAll", query = "SELECT m FROM Departamento m"),
-@NamedQuery(name = "Departamento.findByNombres", query = "SELECT m FROM Departamento m WHERE m.nombdepto = :nombdepto")})
+@NamedQuery(name = "Departamento.findByNombres", query = "SELECT m FROM Departamento m WHERE m.nombres = :nombres")})
 
 public class Departamento {
   private String iddepto;
@@ -31,7 +31,7 @@ public class Departamento {
 	
 	@Id		
 	@Basic(optional = false)	
-	@Column(name = "nombredepto")
+	@Column(name = "nombdepto")
 	public String getnombdepto() {
 		return nombdepto;
 	}

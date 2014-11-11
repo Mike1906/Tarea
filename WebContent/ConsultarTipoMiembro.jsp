@@ -5,10 +5,10 @@
 <%! String mensaje = "" ; %>
 <%     
 	CtrlTipoMiembro nomina = new CtrlTipoMiembro();
-   
  	List tipomiembro = nomina.daTipoMiembro();
 	int numero = tipomiembro.size();
-	 nomina.reporteTipoMiembro();
+	nomina.reporteTipoMiembro();
+	 
  	if (tipomiembro.isEmpty())
  		 mensaje = "No Hay Datos";
  	else {

@@ -12,7 +12,7 @@ public class CtrlUrna {
 
 	public boolean  crearUrna (int idurna, int idmunicipio, int iddepto, int numjunta,
 			String presidente, String secretario, int cantvotosnulos,
-			int cantvotosnovalid, String username)  {
+			int cantvotosnovalid, int username)  {
 		if (daoUrna.daUrna() == null) {
 			Urna urna = new Urna(idurna, idmunicipio, iddepto, numjunta, presidente, secretario, cantvotosnulos, cantvotosnulos,  username);
 			daoUrna.guardaActualiza(urna) ;

@@ -61,8 +61,8 @@ public class CtrlMiembrojrv {
              connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea?zeroDateTimeBehavior=convertToNull","root","root");
            System.out.println("Filling report...");
            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
-           JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/tarea/Miembrosjrv.pdf");
-           File path = new File ("C:/tarea/Miembrosjrv.pdf");
+           JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/Miembrosjrv.pdf");
+           File path = new File ("C:/Miembrosjrv.pdf");
 	        Desktop.getDesktop().open(path);
        //    JasperViewer.viewReport(jasperPrint, false);
            connection.close();
@@ -70,7 +70,6 @@ public class CtrlMiembrojrv {
            System.out.println(e.getMessage());
        }
 }
-	
 	
 	public List<Miembrojrv> daMiembrojrv(){
 		return daoMiembro.daMiembrojrv() ;

@@ -48,27 +48,27 @@ public class CtrlTipoMiembro {
 			return false ;
 	} 
 	
-	public void reporteTipoMiembro() throws JRException{
-   	 String reportPath = "/TiposMiembros.jasper";
-        Map<String, Object> params = new HashMap<String, Object>();
-        Connection connection;
+	 public void reporteTipoMiembro() throws JRException{
+    	 String reportPath = "/TiposMiembros.jasper";
+         Map<String, Object> params = new HashMap<String, Object>();
+         Connection connection;
 
-       try {
+        try {
 
-          // JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
-             Class.forName("com.mysql.jdbc.Driver");
-             connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea?zeroDateTimeBehavior=convertToNull","root","root");
-           System.out.println("Filling report...");
-           JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
-           JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/tarea/TiposMiembros.pdf");
-           File path = new File ("C:/tarea/TiposMiembros.pdf");
+           // JasperReport jasperReport = JasperCompileManager.compileReport(reportSource);
+              Class.forName("com.mysql.jdbc.Driver");
+              connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea?zeroDateTimeBehavior=convertToNull","root","root");
+            System.out.println("Filling report...");
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/TiposMiembros.pdf");
+            File path = new File ("C:/TiposMiembros.pdf");
 	        Desktop.getDesktop().open(path);
-       //    JasperViewer.viewReport(jasperPrint, false);
-           connection.close();
-       } catch (Exception e) {
-           System.out.println(e.getMessage());
-       }
-}
+        //    JasperViewer.viewReport(jasperPrint, false);
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+ }
 	
 	public List<TipoMiembro> daTipoMiembro(){
 		return daoTipoMiembro.daTipoMiembro() ;

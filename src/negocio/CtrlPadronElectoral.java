@@ -94,8 +94,8 @@ public class CtrlPadronElectoral {
               connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea?zeroDateTimeBehavior=convertToNull","root","root");
             System.out.println("Filling report...");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/tarea/ReportePadron.pdf");
-            File path = new File ("C:/tarea/ReportePadron.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ReportePadron.pdf");
+            File path = new File ("C:/ReportePadron.pdf");
 	        Desktop.getDesktop().open(path);
         //    JasperViewer.viewReport(jasperPrint, false);
             connection.close();

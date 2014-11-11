@@ -60,7 +60,7 @@ public class CtrlJrv {
      } 
       
      public boolean actualizaJrv(String idjrv,String iddepto, String idmunicipio, String dui,String username) { 
-    	 if (daoJrv.daJrvByClave(dui,idmunicipio,iddepto) != null) {
+    	 if (daoJrv.daJrvById(Short.valueOf(idjrv))!= null) {
             Jrv jrv = new Jrv() ; 
             jrv.setIdjrv(Short.valueOf(idjrv));
             jrv.setIddepto(iddepto);
