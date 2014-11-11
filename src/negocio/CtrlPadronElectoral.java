@@ -31,9 +31,9 @@ public class CtrlPadronElectoral {
 	 private PadronElectoralDAO daoPadron = new PadronElectoralDAO() ;  
      
      public boolean crearPadron(String dui, String nombre, String apellidos,
-    		 String domicilio,String estadovotacion,Urna urna, String username,Date fechanac) { 
+    		 String domicilio,String estadovotacion,int idurna, String username,Date fechanac) { 
         if (daoPadron.daPadronByDui(dui) == null ) { 
-         PadronElectoral padron = new PadronElectoral(dui,nombre,apellidos,domicilio,estadovotacion,urna,username,fechanac); 
+         PadronElectoral padron = new PadronElectoral(dui,nombre,apellidos,domicilio,estadovotacion,idurna,username,fechanac); 
               daoPadron.guardaActualiza(padron) ; 
               return true;
         } 
@@ -43,7 +43,7 @@ public class CtrlPadronElectoral {
      
      
      public boolean actualizaPadron(String dui, String nombre, String apellidos,String domicilio, 
-    		 String estadovotacion, Urna urna,String username, Date fechanac) { 
+    		 String estadovotacion, int idurna,String username, Date fechanac) { 
     	 if (daoPadron.daPadronByDui(dui) != null) {
             PadronElectoral padron=new PadronElectoral();
             padron.setDui(dui);
@@ -51,7 +51,7 @@ public class CtrlPadronElectoral {
             padron.setApellidos(apellidos);
             padron.setDomicilio(domicilio);
             padron.setEstadovotacion(estadovotacion);
-            padron.setUrna(urna);
+            padron.setIdUrna(idurna);
             padron.setUsername(username);
             padron.setFechanac(fechanac);
             daoPadron.guardaActualiza(padron);
@@ -94,8 +94,8 @@ public class CtrlPadronElectoral {
               connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/tarea?zeroDateTimeBehavior=convertToNull","root","root");
             System.out.println("Filling report...");
             JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, params, connection);
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ReportePadron.pdf");
-            File path = new File ("C:/ReportePadron.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/tarea/ReportePadron.pdf");
+            File path = new File ("C:/tarea/ReportePadron.pdf");
 	        Desktop.getDesktop().open(path);
         //    JasperViewer.viewReport(jasperPrint, false);
             connection.close();

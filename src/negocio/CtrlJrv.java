@@ -17,12 +17,18 @@ import com.mysql.jdbc.Connection;
 
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
+import net.sf.jasperreports.export.ExporterInput;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimpleXlsxReportConfiguration;
 import net.sf.jasperreports.view.JasperViewer;
 
 import dao.JrvDAO;
@@ -80,7 +86,8 @@ public class CtrlJrv {
     	   }
      }*/
      
-     public void reporteJrv() {
+    
+	public void reporteJrv() {
     	 String reportPath = "/ConsultaJrv.jasper";
          Map<String, Object> params = new HashMap<String, Object>();
          Connection connection;
@@ -94,6 +101,20 @@ public class CtrlJrv {
             JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/ConsultaJrv.pdf");
             File path = new File ("C:/ConsultaJrv.pdf");
 	        Desktop.getDesktop().open(path);
+	        
+	        
+	        
+	        File xlsx = new File("C:/sample.xls");
+	        JRXlsxExporter xlsEexporter = new JRXlsxExporter();
+	        xlsEexporter.setExporterInput((ExporterInput) new SimpleExporterInput(reportPath));
+	        xlsEexporter.setExporterOutput(new SimpleOutputStreamExporterOutput(new File("C:/sample.xlsx")));
+	        SimpleXlsxReportConfiguration config = new SimpleXlsxReportConfiguration();
+	        xlsEexporter.setConfiguration(config);
+	        xlsEexporter.exportReport();
+	        
+	        
+	        
+	        
            // JasperViewer.viewReport(jasperPrint, false);
             connection.close();
         } catch (Exception e) {

@@ -52,10 +52,10 @@ public class UrnaDAO {
 			sesion.close() ;
 		}
 	}
-	public Urna daUrnaById(int idurna){
+	public Urna daUrnaById(String idurna){
 		sesion = sessionFactory.openSession() ;
 		// Retorna la instancia persistente de la clase por medio del atributo identidad
-		Urna id = (Urna) sesion.get(Urna.class,new String()) ;
+		Urna id = (Urna) sesion.get(Urna.class,new String(idurna)) ;
 		sesion.close() ;
 		return id ;
 	}

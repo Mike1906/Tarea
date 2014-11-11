@@ -29,8 +29,7 @@ public class PadronElectoral implements Serializable{
 	private Date fechanac;
 	private String domicilio;
 	private String estadovotacion;
-	//private int idurna;
-	private Urna urna;
+	private int idurna;
 	private String username;
 	
 	public PadronElectoral(){
@@ -39,14 +38,14 @@ public class PadronElectoral implements Serializable{
 
 	
 
-	public PadronElectoral(String dui, String nombre, String apellidos,String domicilio, String estadovotacion, Urna urna,String username, Date fechanac) {
+	public PadronElectoral(String dui, String nombre, String apellidos,String domicilio, String estadovotacion, int idurna,String username, Date fechanac) {
 		super();
 		this.dui = dui;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.domicilio = domicilio;
 		this.estadovotacion = estadovotacion;
-		this.urna = urna;
+		this.idurna = idurna;
 		this.username = username;
 		this.fechanac = fechanac;
 	}
@@ -125,16 +124,16 @@ public class PadronElectoral implements Serializable{
 	}
 
 
-	@JoinColumn(name = "idurna", referencedColumnName = "idurna") 
-	@ManyToOne(optional = false)
-	public Urna getUrna() {
-		return urna;
+	@Basic(optional = false) 
+	@Column(name = "idurna")
+	public int getIdUrna() {
+		return idurna;
 	}
 
 
 
-	public void setUrna(Urna urna) {
-		this.urna = urna;
+	public void setIdUrna(int idurna) {
+		this.idurna = idurna;
 	}
 
 	

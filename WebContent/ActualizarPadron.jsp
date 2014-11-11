@@ -23,7 +23,7 @@ Date fechanac = format.parse(sfechanac);
 Urna urna=new Urna();
 urna.setIdurna(idurna);
 
-boolean exito=padron.actualizaPadron(dui, nombre, apellidos, domicilio, estadovotacion, urna, username, fechanac);
+boolean exito=padron.actualizaPadron(dui, nombre, apellidos, domicilio, estadovotacion, idurna, username, fechanac);
 
 if (exito==true)
    mensaje="se actualizo el Padron Electoral correctamente";

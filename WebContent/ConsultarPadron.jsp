@@ -22,7 +22,7 @@ List lista=padron.daPadrones();
  					 	"<th>" + padronactual.getFechanac()+ "</th>"+
  					 	"<th>" + padronactual.getDomicilio()+ "</th>"+
  					 	"<th>" + padronactual.getEstadovotacion()+ "</th>"+
- 					 	"<th>" + padronactual.getUrna()+ "</th>"+
+ 					 	"<th>" + padronactual.getIdUrna()+ "</th>"+
  					     "<th>" +padronactual.getUsername() + "</th></tr>");
  		}
  	}

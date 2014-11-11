@@ -23,7 +23,7 @@ urna.setIdurna(idurna);
 
 
 
-boolean exito=padron.crearPadron(dui,nombre,apellidos,domicilio,estadovotacion,urna,username,fechanac);
+boolean exito=padron.crearPadron(dui,nombre,apellidos,domicilio,estadovotacion,idurna,username,fechanac);
 if (exito==true)
    mensaje="se ingreso el padron correctamente";
 else

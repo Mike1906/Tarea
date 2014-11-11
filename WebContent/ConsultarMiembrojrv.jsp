@@ -5,9 +5,10 @@
 <%! String mensaje = "" ; %>
 <%     
 	CtrlMiembrojrv nomina = new CtrlMiembrojrv();
+
  	List miembro = nomina.daMiembrojrv();
 	int numero = miembro.size();
-	 
+	nomina.reporteMiembroJrv(); 
  	if (miembro.isEmpty())
  		 mensaje = "No Hay Datos";
  	else {

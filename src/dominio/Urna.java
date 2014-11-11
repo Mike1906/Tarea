@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "urna", catalog = "tarea", schema = "")
 @NamedQueries({
 @NamedQuery(name = "Urna.findAll", query = "SELECT u FROM Urna u"),
-@NamedQuery(name = "Urna.findByIdUrna", query = "SELECT u FROM Urna u WHERE d.idUrna = :idUrna"),
+@NamedQuery(name = "Urna.findByIdUrna", query = "SELECT u FROM Urna u WHERE u.idurna = :idurna"),
 })
 
 
@@ -31,14 +31,14 @@ public class Urna implements Serializable {
 	private String secretario;  
 	private int cantvotosnulos;  
 	private int cantvotosnovalid;  
-	private int username;
+	private String username;
 	public Urna() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Urna(int idurna, int idmunicipio, int iddepto, int numjunta,
 			String presidente, String secretario, int cantvotosnulos,
-			int cantvotosnovalid, int username) {
+			int cantvotosnovalid, String username) {
 		super();
 		this.idurna = idurna;
 		this.idmunicipio = idmunicipio;
@@ -141,11 +141,11 @@ public class Urna implements Serializable {
 	
 	@Basic(optional = false)
 	@Column(name = "username")
-	public int getUsername() {
+	public String getUsername() {
 		return username;
 	}
 	
-	public void setUsername(int username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}  
 	
