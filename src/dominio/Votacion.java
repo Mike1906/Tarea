@@ -40,7 +40,7 @@ public class Votacion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "IdVotacion")
+	@Column(name = "idvotacion")
 	public float getIdVotacion() {
 	return idVotacion;
 	}
@@ -48,7 +48,7 @@ public class Votacion {
 		this.idVotacion = idVotacion;
 		}
 	@Basic(optional = false)
-	@Column(name = "IdUrna")
+	@Column(name = "idurna")
 	public float getIdUrna(){
 		return idUrna;
 	}
@@ -57,7 +57,7 @@ public class Votacion {
 		
 		}
 		@Basic(optional = false)
-		@Column(name = "IdPartidoPolitico")
+		@Column(name = "idpartido")
 		public String getIdPartidoPolitico(){
 			return idPartidoPolitico;
 		}
@@ -65,7 +65,7 @@ public class Votacion {
 			this.idPartidoPolitico=idPartidoPolitico;
 		}
 	@Basic(optional = false)
-	@Column(name = "CantidadVotosValidos")
+	@Column(name = "cantvotosvalidos")
 	public float getCantidadVotosValidos(){
 		return cantidadVotosValidos;
 	}
@@ -73,7 +73,7 @@ public class Votacion {
 		this.cantidadVotosValidos=cantidadVotosValidos;
 	}
 	@Basic(optional = false)
-	@Column(name = "Username")
+	@Column(name = "username")
 	public String getUsername(){
 		return username;
 	}
