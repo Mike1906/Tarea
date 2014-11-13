@@ -27,7 +27,19 @@ public class CtrlPartidoPolitico {
 		else
 			return false ;
 	}
-	
+	public boolean actualizar(String idpartido, String nombpartido, Date fechafundac, String nombsecretariogral, String username) {
+         	if (daoPartidoPolitico.daPartidoPoliticoById(idpartido) != null) {
+            PartidoPolitico partido=new PartidoPolitico();
+            partido.setDui(idpartido);
+            partido.setNombre(nombpartido);
+            partido.setApellidos(fechafundac);
+            partido.setDomicilio(nombsecretariogral);
+            partido.setUsername(username);
+            daoPadron.guardaActualiza(partido);
+              return true ;}
+    	 else
+    		 return false;
+     } 
 	public List<PartidoPolitico> daPartido(){ 
         return daoPartidoPolitico.daPartido() ; 
     } 
