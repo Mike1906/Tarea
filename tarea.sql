@@ -40,7 +40,8 @@ CREATE TABLE `departamento` (
 
 /*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
 INSERT INTO `departamento` (`iddepto`,`nombredepto`,`zonageografica`,`username`) VALUES 
- ('1','La Libertad','No se','Mike');
+ ('1','La Libertad','No se','Mike'),
+ ('2','23','23','23');
 /*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 
 
@@ -88,8 +89,8 @@ CREATE TABLE `miembrojrv` (
   PRIMARY KEY (`idmiembrojrv`),
   KEY `FK_miembrojrv_1` (`idtipomiembro`),
   KEY `FK_miembrojrv_2` (`idjrv`),
-  CONSTRAINT `FK_miembrojrv_2` FOREIGN KEY (`idjrv`) REFERENCES `jrv` (`idjrv`),
-  CONSTRAINT `FK_miembrojrv_1` FOREIGN KEY (`idtipomiembro`) REFERENCES `tipomiembro` (`idtipomiembro`)
+  CONSTRAINT `FK_miembrojrv_1` FOREIGN KEY (`idtipomiembro`) REFERENCES `tipomiembro` (`idtipomiembro`),
+  CONSTRAINT `FK_miembrojrv_2` FOREIGN KEY (`idjrv`) REFERENCES `jrv` (`idjrv`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -98,9 +99,8 @@ CREATE TABLE `miembrojrv` (
 
 /*!40000 ALTER TABLE `miembrojrv` DISABLE KEYS */;
 INSERT INTO `miembrojrv` (`idmiembrojrv`,`nombres`,`apellidop`,`apellidom`,`idjrv`,`idtipomiembro`,`username`) VALUES 
- ('MI001','Miguel Enrique','Agustin','Alvayero',1,'TM001','Mike'),
- ('MI002','aa','aa','aa',1,'TM002','Mike'),
- ('MI003','11','11','11',1,'TM001','1');
+ ('MI001','Vladimir','AA','AA',1,'TM003','Mike'),
+ ('MI002','Miguel Enrique','Agustin','Alvayero',1,'TM001','Mike');
 /*!40000 ALTER TABLE `miembrojrv` ENABLE KEYS */;
 
 
@@ -178,6 +178,8 @@ CREATE TABLE `partidopolitico` (
 --
 
 /*!40000 ALTER TABLE `partidopolitico` DISABLE KEYS */;
+INSERT INTO `partidopolitico` (`idpartido`,`nombpartido`,`fechafundac`,`nombsecretariogral`,`username`) VALUES 
+ ('1','ARENA','1980-06-12','No se ','Mike');
 /*!40000 ALTER TABLE `partidopolitico` ENABLE KEYS */;
 
 
@@ -199,15 +201,13 @@ CREATE TABLE `tipomiembro` (
 
 /*!40000 ALTER TABLE `tipomiembro` DISABLE KEYS */;
 INSERT INTO `tipomiembro` (`idtipomiembro`,`descripcion`,`username`) VALUES 
- ('TM000','No activo','Mike'),
- ('TM001','Activo','Mike'),
+ ('TM001','Descripcion 01','Mike'),
  ('TM002','Descripcion 02','Mike'),
  ('TM003','Descripcion 03','Mike'),
  ('TM004','Descripcion 04','Mike'),
  ('TM005','Descripcion 05','Mike'),
  ('TM006','Descripcion 06','Mike'),
- ('TM007','Descripcion 07','Mike'),
- ('TM008','Descripcion 08','Mike');
+ ('TM007','Descripcion 07','Mike');
 /*!40000 ALTER TABLE `tipomiembro` ENABLE KEYS */;
 
 
@@ -217,19 +217,19 @@ INSERT INTO `tipomiembro` (`idtipomiembro`,`descripcion`,`username`) VALUES
 
 DROP TABLE IF EXISTS `urna`;
 CREATE TABLE `urna` (
-  `idurna` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idurna` int(10) unsigned NOT NULL,
   `idmunicipio` varchar(2) NOT NULL,
   `iddepto` varchar(2) NOT NULL,
-  `numjunta` decimal(6,0) NOT NULL,
+  `numjunta` int(10) unsigned NOT NULL,
   `presidente` varchar(45) NOT NULL,
   `secretario` varchar(45) NOT NULL,
-  `cantvotosnulos` decimal(6,0) NOT NULL,
+  `cantvotosnulos` int(10) unsigned NOT NULL,
   `cantvotosnovalid` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
   PRIMARY KEY (`idurna`),
   KEY `FK_urna_1` (`idmunicipio`),
   CONSTRAINT `FK_urna_1` FOREIGN KEY (`idmunicipio`) REFERENCES `municipio` (`idmunicipio`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `urna`
@@ -237,7 +237,9 @@ CREATE TABLE `urna` (
 
 /*!40000 ALTER TABLE `urna` DISABLE KEYS */;
 INSERT INTO `urna` (`idurna`,`idmunicipio`,`iddepto`,`numjunta`,`presidente`,`secretario`,`cantvotosnulos`,`cantvotosnovalid`,`username`) VALUES 
- (1,'1','1','1','dasd','22','2','2','Mike');
+ (1,'1','1',1,'dasd','22',2,'2','Mike'),
+ (2,'1','1',2,'2','2',2,'2','2'),
+ (3,'1','1',32,'3','3',3,'4','4');
 /*!40000 ALTER TABLE `urna` ENABLE KEYS */;
 
 
@@ -254,7 +256,7 @@ CREATE TABLE `usuarios` (
   `password` varchar(45) NOT NULL,
   `tipo` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usuarios`
@@ -263,9 +265,7 @@ CREATE TABLE `usuarios` (
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`,`nombre`,`apellido`,`username`,`password`,`tipo`) VALUES 
  (1,'Migue Enrique','Agustin','Mike','1234',1),
- (2,'MMMMMMMM','AAAAAAAAAA','MA','AA',2),
- (3,'MMMAAA','AAAA','AA','BB',3),
- (4,'asdasd','sdsd','sd','sss',2);
+ (2,'Mike','Agustin','admin','admin',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 
@@ -275,10 +275,10 @@ INSERT INTO `usuarios` (`id`,`nombre`,`apellido`,`username`,`password`,`tipo`) V
 
 DROP TABLE IF EXISTS `votacion`;
 CREATE TABLE `votacion` (
-  `idvotacion` decimal(6,0) NOT NULL,
+  `idvotacion` varchar(6) NOT NULL,
   `idurna` int(10) unsigned NOT NULL,
   `idpartido` varchar(3) NOT NULL,
-  `cantvotosvalidos` decimal(6,0) NOT NULL,
+  `cantvotosvalidos` int(10) unsigned NOT NULL,
   `username` varchar(45) NOT NULL,
   PRIMARY KEY (`idvotacion`),
   KEY `FK_votacion_1` (`idpartido`),
@@ -292,6 +292,8 @@ CREATE TABLE `votacion` (
 --
 
 /*!40000 ALTER TABLE `votacion` DISABLE KEYS */;
+INSERT INTO `votacion` (`idvotacion`,`idurna`,`idpartido`,`cantvotosvalidos`,`username`) VALUES 
+ ('23',1,'1',23,'23');
 /*!40000 ALTER TABLE `votacion` ENABLE KEYS */;
 
 
