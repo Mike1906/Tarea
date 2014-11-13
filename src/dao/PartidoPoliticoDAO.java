@@ -55,24 +55,14 @@ public class PartidoPoliticoDAO {
 		sesion = sessionFactory.openSession() ;
 		PartidoPolitico id = (PartidoPolitico) sesion.get(PartidoPolitico.class,new String(idPartidoPolitico)) ;
 		sesion.close() ;
-		return id ;
-		}
+	return id ;
+	}
 	public List<PartidoPolitico> daPartido() { 
         sesion = sessionFactory.openSession() ; 
         Query query = sesion.getNamedQuery("PartidoPolitico.findAll"); 
-          List <PartidoPolitico>partido = query.list() ; 
-          sesion.close() ; 
-        return partido ; 
-     } 
-	
-	public PartidoPolitico daPartidoPoliticoByNombre(String nombrePartido) {
-		sesion = sessionFactory.openSession() ;
-		Query query = sesion.getNamedQuery("PartidoPolitico.findByNombrePartido");
-		query.setParameter("NombrePartido", nombrePartido);
-		PartidoPolitico partido = (PartidoPolitico) query.uniqueResult();
-		sesion.close() ;
-		return partido ;
-		}
-	
-	
+        List <PartidoPolitico>partido = query.list() ; 
+        sesion.close() ; 
+    return partido ; 
+    } 
+			
 }

@@ -20,6 +20,10 @@ public class Votacion implements Serializable{
 	public int cantvotosvalidos;
 	public String username;
 	
+	public Votacion(){
+		
+	}
+	
 	public Votacion(String idvotacion, int idurna, String idpartido, int cantvotosvalidos, String username) {		
 		this.idvotacion = idvotacion;
 		this.idurna = idurna;
