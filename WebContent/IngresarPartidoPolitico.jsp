@@ -6,10 +6,11 @@
     <%
 	String idPartidoPolitico = request.getParameter("idpartidopolitico");
 	String nombrePartido = request.getParameter("nombrepartido");
-	String sFundacion = request.getParameter("fecha");
-	Date fechaDeFundacion = new SimpleDateFormat("dd-mm-yyyy").parse("sFundacion");
 	String nombreSecretarioGeneral = request.getParameter("nombresecretario");
-	String username = request.getParameter("usuario");		
+	String username = request.getParameter("usuario");	
+	String sfecha=request.getParameter("fecha");
+        SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
+        Date fechaDeFundacion = format.parse(sfecha);
 	
 	CtrlPartidoPolitico partidopolitico = new CtrlPartidoPolitico();
 	boolean exito = partidopolitico.crearPartidoPolitico(idPartidoPolitico,nombrePartido,fechaDeFundacion,nombreSecretarioGeneral,username);
