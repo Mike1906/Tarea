@@ -33,7 +33,6 @@ public class CtrlPartidoPolitico {
 			daoPartidoPolitico.guardaActualiza(partidopolitico) ;
 			return true ;
 		}
-              return true ;}
     	 else
     		 return false;
      } 
