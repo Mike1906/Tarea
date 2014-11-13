@@ -11,7 +11,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 @Entity 
 @Table(name = "votacion", catalog = "tarea", schema = "") 
-@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v")
+@NamedQueries({ 
+@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v"),
+@NamedQuery(name = "Votacion.findById", query = "SELECT v FROM Votacion v.idvotacion = :idvotacion")
+}) 
 public class Votacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 	public String idvotacion;
