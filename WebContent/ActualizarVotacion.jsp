@@ -11,7 +11,7 @@ String idPartidoPolitico = request.getParameter("idpartidopolitico");
 float cantidadVotosValidos = Float.parseFloat(request.getParameter("votosvalidos"));
 String username = request.getParameter("username");
 
-boolean exito = votacion.actualizaVotacion(idVotacion, idUrna, idPartidoPolitico, cantidadVotosValidos, username); 
+boolean exito = votacion.actualizarVotacion(idVotacion, idUrna, idPartidoPolitico, cantidadVotosValidos, username); 
 if (exito==true)
    mensaje="se actualizo la votacion correctamente";
 else
