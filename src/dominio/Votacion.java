@@ -7,15 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 @Entity 
 @Table(name = "votacion", catalog = "tarea", schema = "") 
-@NamedQueries({ 
-@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v"),
-@NamedQuery(name = "Votacion.findById", query = "SELECT v FROM Votacion v.idvotacion = :idvotacion")
-}) 
+@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v")
 public class Votacion implements Serializable{
 	private static final long serialVersionUID = 1L;
 	public String idvotacion;
