@@ -27,6 +27,19 @@ public class CtrlVotacion {
         return false ; 
        
     } 
+    public boolean actualizarVotacion(String idvotacion,int idurna, String idpartido, int cantvotosvalidos  ,String username) { 
+    	 if (daoVotacion.daVotacionById(idvotacion)!= null) {
+            Votacion v = new Votacion() ; 
+            jrv.setIdVotacion(idvotacion);
+            jrv.setIdUrna(idurna);
+            jrv.setIdPartidoPolitico(idmunicipio);
+            jrv.setCantidadVotosValidos(cantvotosvalidos);
+            jrv.setUsername(username);
+              daoVotacion.guardaActualiza(v) ; 
+              return true ;}
+    	 else
+    		 return false;
+     } 
     
     public List<Votacion> daVotacion(){ 
         return daoVotacion.daVotacion() ; 
