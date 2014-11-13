@@ -11,9 +11,9 @@
 	String mensaje;
 	
 	if (exito) {
-		mensaje = "¡¡¡ Se elimino el Partido Politico !!! ";
+		mensaje = "Â¡Â¡Â¡ Se elimino el Partido Politico !!! ";
 	}else {
-		mensaje = "¡¡¡ No existe ese Partido  Politico !!! ";
+		mensaje = "Â¡Â¡Â¡ No existe ese Partido  Politico !!! ";
 	}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,7 +30,7 @@
     <div class="small-8">      
       <div class="row">        
  <center><%=mensaje%><br><br>
-        <a role="button" aria-label="submit form" href="BorrarPartidoPolitico.html" class="button">Borrar otro Partido Politico</a>
+        <a role="button" aria-label="submit form" href="EliminarPartidoPolitico.html" class="button">Borrar otro Partido Politico</a>
         <a role="button" aria-label="submit form" href="Main.jsp" class="button">Volver al menu</a></center>
       </div>
     </div>
