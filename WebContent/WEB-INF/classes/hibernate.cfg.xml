@@ -42,11 +42,11 @@
         <mapping package="org.mypackage"/>
         <mapping class="org.MyClass/>
         -->
-        <mapping class="dominio.Usuarios"/>
+       <!-- <mapping class="dominio.Usuarios"/>
         <mapping class="dominio.TipoMiembro"/> 
         <mapping class="dominio.Miembrojrv"/>  
         <mapping class="dominio.Jrv"/> 
-        <mapping class="dominio.PadronElectoral"/>
+        <mapping class="dominio.PadronElectoral"/>-->
         <mapping class="dominio.PartidoPolitico"/>
         <mapping class="dominio.Votacion"/> 
 
