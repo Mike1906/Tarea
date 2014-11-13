@@ -30,11 +30,11 @@ public class CtrlVotacion {
     public boolean actualizarVotacion(String idvotacion,int idurna, String idpartido, int cantvotosvalidos  ,String username) { 
     	 if (daoVotacion.daVotacionById(idvotacion)!= null) {
             Votacion v = new Votacion() ; 
-            jrv.setIdVotacion(idvotacion);
-            jrv.setIdUrna(idurna);
-            jrv.setIdPartidoPolitico(idmunicipio);
-            jrv.setCantidadVotosValidos(cantvotosvalidos);
-            jrv.setUsername(username);
+            v.setIdVotacion(idvotacion);
+            v.setIdUrna(idurna);
+            v.setIdPartidoPolitico(idmunicipio);
+            v.setCantidadVotosValidos(cantvotosvalidos);
+            v.setUsername(username);
               daoVotacion.guardaActualiza(v) ; 
               return true ;}
     	 else
