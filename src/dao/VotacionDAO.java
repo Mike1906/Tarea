@@ -68,8 +68,8 @@ public class VotacionDAO {
 	     public List<Votacion> daVotacion() { 
 	        sesion = sessionFactory.openSession() ; 
 	        Query query = sesion.getNamedQuery("Votacion.findAll"); 
-	          List <Votacion>votacion = query.list() ; 
-	          sesion.close() ; 
+	        List <Votacion> votacion = query.list() ; 
+	        sesion.close() ; 
 	        return votacion ; 
 	     }	    
 	     

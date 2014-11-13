@@ -17,9 +17,9 @@ public class CtrlVotacion {
    		 return false;
     } 
      
-    public boolean borrarVotacion(String idVotacion) { 
-      if (daoVotacion.daVotacionById(idVotacion) != null ) { 
-        Votacion votacion = daoVotacion.daVotacionById(idVotacion) ; 
+    public boolean borrarVotacion(String idvotacion) { 
+      if (daoVotacion.daVotacionById(idvotacion) != null ) { 
+        Votacion votacion = daoVotacion.daVotacionById(idvotacion) ; 
         daoVotacion.eliminar(votacion) ; 
         return true ; 
       } 

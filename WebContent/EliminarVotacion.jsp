@@ -5,9 +5,9 @@
     <%
 String mensaje="";
 CtrlVotacion votacion = new CtrlVotacion();
-float idVotacion = Float.parseFloat(request.getParameter("idvotacion"));
+String id = request.getParameter("id");
 
-boolean exito= votacion.borrarVotacion(idVotacion);
+boolean exito= votacion.borrarVotacion(id);
 if (exito==true)
    mensaje="se elimino la Votacion correctamente";
 else

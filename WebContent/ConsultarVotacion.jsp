@@ -16,11 +16,11 @@
 		mensaje += "<table><tr> <th>ID</th> <th>ID URNA</th> <th>ID PARTIDO POLITICO</th> <th>CANTIDAD DE VOTOS VALIDOS</th> <th>USERNAME</th> </tr>";
 		for (int i = 0; i < numero; i++) {
 			vactual = (Votacion) lista.get(i);
-			mensaje += ("<tr><th>" + vactual.getIdVotacion() + "</th>"
-					+ "<th>" + vactual.getIdUrna() + "</th>"
-					+ "<th>" + vactual.getIdPartidoPolitico() + "</th>"
-					+ "<th>" + vactual.getCantidadVotosValidos() + "</th>" + "<th>"
-					+ vactual.getUsername() + "</th></tr>");
+			mensaje += ("<tr><th>" + vactual.getIdvotacion() + "</th>"
+					+ "<th>" + vactual.getIdurna() + "</th>"
+					+ "<th>" + vactual.getIdpartido() + "</th>"
+					+ "<th>" + vactual.getCantvotosvalidos() + "</th>" 
+					+ "<th>" + vactual.getUsername() + "</th></tr>");
 		}
 	}
 %>    
