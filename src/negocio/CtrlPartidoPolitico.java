@@ -29,13 +29,13 @@ public class CtrlPartidoPolitico {
 	}
 	public boolean actualizar(String idpartido, String nombpartido, Date fechafundac, String nombsecretariogral, String username) {
          	if (daoPartidoPolitico.daPartidoPoliticoById(idpartido) != null) {
-            PartidoPolitico partido=new PartidoPolitico();
-            partido.setIdpartido(idpartido);
-            partido.setNombpartido(nombpartido);
-            partido.setFechafundac(fechafundac);
-            partido.setNombsecretariogral(nombsecretariogral);
-            partido.setUsername(username);
-            daoPadron.guardaActualiza(partido);
+            PartidoPolitico partidopolitico =new PartidoPolitico();
+            partidopolitico.setIdpartido(idpartido);
+            partidopolitico.setNombpartido(nombpartido);
+            partidopolitico.setFechafundac(fechafundac);
+            partidopolitico.setNombsecretariogral(nombsecretariogral);
+            partidopolitico.setUsername(username);
+            daoPadron.guardaActualiza(partidopolitico);
               return true ;}
     	 else
     		 return false;
