@@ -35,7 +35,7 @@ public class CtrlPartidoPolitico {
             partidopolitico.setFechafundac(fechafundac);
             partidopolitico.setNombsecretariogral(nombsecretariogral);
             partidopolitico.setUsername(username);
-            daoPadron.guardaActualiza(partidopolitico);
+            daoPartidoPolitico.guardaActualiza(partidopolitico);
               return true ;}
     	 else
     		 return false;
