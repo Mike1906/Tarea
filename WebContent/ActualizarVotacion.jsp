@@ -5,10 +5,10 @@
     <%
 String mensaje="";
 CtrlVotacion votacion = new CtrlVotacion();
-float idVotacion = Float.parseFloat(request.getParameter("idvotacion"));
-float idUrna = Float.parseFloat(request.getParameter("idurna"));
+String idVotacion = request.getParameter("idvotacion");
+int idUrna = Integer.parseInt(request.getParameter("idurna"));
 String idPartidoPolitico = request.getParameter("idpartidopolitico");
-float cantidadVotosValidos = Float.parseFloat(request.getParameter("votosvalidos"));
+int cantidadVotosValidos = Integer.parseInt(request.getParameter("votosvalidos"));
 String username = request.getParameter("username");
 
 boolean exito = votacion.actualizarVotacion(idVotacion, idUrna, idPartidoPolitico, cantidadVotosValidos, username); 
