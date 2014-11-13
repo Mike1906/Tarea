@@ -13,8 +13,10 @@ import javax.persistence.Table;
 import javax.persistence.NamedQuery;
 @Entity 
 @Table(name = "partidopolitico", catalog = "tarea", schema = "") 
+@NamedQueries({ 
 @NamedQuery(name = "PartidoPolitico.findAll", query = "SELECT p FROM PartidoPolitico p") 
-
+@NamedQuery(name = "PartidoPolitico.findById", query = "SELECT p FROM PartidoPolitico p") 
+})
 public class PartidoPolitico implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String idpartido;
