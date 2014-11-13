@@ -1,84 +1,82 @@
 package dominio;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 @Entity 
 @Table(name = "votacion", catalog = "tarea", schema = "") 
-@NamedQueries({ 
- @NamedQuery(name = "votacion.findAll", query = "SELECT v FROM Votacion v"), 
- @NamedQuery(name = "votacion.findById", query = "SELECT v FROM Votacion v WHERE j.IdVotacion = :IdVotacion"),
- @NamedQuery(name = "votacion.findByUrna", query = "SELECT v FROM Votacion v WHERE j.IdUrna = :IdUrna"),
- @NamedQuery(name = "votacion.findByClave", query = "SELECT v FROM Votacion v WHERE v.IdVotacion = :IdVotacion and v.IdUrna = :IdUrna and v.IdPartidoPolitico=:IdPartidoPolitico")
- }) 
+@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v")
+public class Votacion implements Serializable{
+	private static final long serialVersionUID = 1L;
+	public String idvotacion;
+	public int idurna;
+	public String idpartido;
+	public int cantvotosvalidos;
+	public String username;
+	
+	public Votacion(String idvotacion, int idurna, String idpartido, int cantvotosvalidos, String username) {		
+		this.idvotacion = idvotacion;
+		this.idurna = idurna;
+		this.idpartido = idpartido;
+		this.cantvotosvalidos = cantvotosvalidos;
+		this.username = username;
+	}
 
-public class Votacion {
-	
-	private float idVotacion;
-	private float idUrna;
-	private String idPartidoPolitico;
-	private float cantidadVotosValidos;
-	private String username;
-	
-	public Votacion(){
-}
-	public Votacion(float idVotacion,float idUrna,String idPartidoPolitico,float cantidadVotosValidos,String username){
-		this.idVotacion=idVotacion;
-		this.idUrna=idUrna;
-		this.idPartidoPolitico=idPartidoPolitico;
-		this.cantidadVotosValidos=cantidadVotosValidos;
-		this.username=username;
-		
-		
-	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
+	@Id		
+	@Basic(optional = false)	
 	@Column(name = "idvotacion")
-	public float getIdVotacion() {
-	return idVotacion;
+	public String getIdvotacion() {
+		return idvotacion;
 	}
-	public void setIdVotacion(float idVotacion) {
-		this.idVotacion = idVotacion;
-		}
+
+	public void setIdvotacion(String idvotacion) {
+		this.idvotacion = idvotacion;
+	}
+
 	@Basic(optional = false)
 	@Column(name = "idurna")
-	public float getIdUrna(){
-		return idUrna;
+	public int getIdurna() {
+		return idurna;
 	}
-		public void setIdUrna(float idUrna){
-			this.idUrna=idUrna;
-		
-		}
-		@Basic(optional = false)
-		@Column(name = "idpartido")
-		public String getIdPartidoPolitico(){
-			return idPartidoPolitico;
-		}
-		public void setIdPartidoPolitico(String idPartdiPolitico){
-			this.idPartidoPolitico=idPartidoPolitico;
-		}
+
+	public void setIdurna(int idurna) {
+		this.idurna = idurna;
+	}
+
+	@Basic(optional = false)
+	@Column(name = "idpartido")
+	public String getIdpartido() {
+		return idpartido;
+	}
+
+	public void setIdpartido(String idpartido) {
+		this.idpartido = idpartido;
+	}
+
 	@Basic(optional = false)
 	@Column(name = "cantvotosvalidos")
-	public float getCantidadVotosValidos(){
-		return cantidadVotosValidos;
+	public int getCantvotosvalidos() {
+		return cantvotosvalidos;
 	}
-	public void setCantidadVotosValidos(float cantidadVotosValidos){
-		this.cantidadVotosValidos=cantidadVotosValidos;
+
+	public void setCantvotosvalidos(int cantvotosvalidos) {
+		this.cantvotosvalidos = cantvotosvalidos;
 	}
+
 	@Basic(optional = false)
 	@Column(name = "username")
-	public String getUsername(){
+	public String getUsername() {
 		return username;
 	}
-	public void setUsername(String username){
-		this.username=username;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }

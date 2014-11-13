@@ -7,6 +7,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import dominio.TipoMiembro;
 import dominio.Votacion;
 import datos.HibernateUtil;
 
@@ -55,36 +57,20 @@ public class VotacionDAO {
 	        }       
 	      } 
 	     
+	    public Votacion daVotacionById(String idvotacion){
+	  		sesion = sessionFactory.openSession() ;
+	  		// Retorna la instancia persistente de la clase por medio del atributo identidad
+	  		Votacion id = (Votacion) sesion.get(Votacion.class,new String(idvotacion)) ;
+	  		sesion.close() ;
+	  		return id ;
+	  	}
+	      
 	     public List<Votacion> daVotacion() { 
 	        sesion = sessionFactory.openSession() ; 
-	        Query query = sesion.getNamedQuery("votacion.findAll"); 
+	        Query query = sesion.getNamedQuery("Votacion.findAll"); 
 	          List <Votacion>votacion = query.list() ; 
 	          sesion.close() ; 
 	        return votacion ; 
-	     } 
-	     public Votacion daVotacionById(float idVotacion){ 
-		      sesion = sessionFactory.openSession() ; 
-		      Votacion votacion = (Votacion) sesion.get(Votacion.class, new Float(idVotacion)); 
-		    		      sesion.close() ; 
-		    		      return votacion ; 
-		    		     } 
-	     public Votacion daVotacionByUrna(float idUrna) { 
-		      sesion = sessionFactory.openSession() ; 
-		      Query consulta = sesion.getNamedQuery("votacion.findByUrna"); 
-		      consulta.setParameter("id_urna", idUrna) ; 
-		      Votacion votacion = (Votacion) consulta.uniqueResult(); 
-		      sesion.close() ; 
-		      return votacion ; 
-		     } 
-	     public Votacion daVotacionByClave(float idVotacion,float idUrna,String idPartidoPolitico) { 
-		      sesion = sessionFactory.openSession() ; 
-		      Query consulta = sesion.getNamedQuery("votacion.findByClave"); 
-		      consulta.setParameter("IdVotacion",idVotacion);
-		      consulta.setParameter("IdUrna", idUrna) ; 
-		      consulta.setParameter("IdPartidoPolitico",idPartidoPolitico);
-		      Votacion votacion = (Votacion) consulta.uniqueResult(); 
-		      sesion.close() ; 
-		      return votacion; 
-		     }
-
+	     }	    
+	     
 }
