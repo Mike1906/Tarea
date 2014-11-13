@@ -8,7 +8,7 @@
 	String nombrePartido = request.getParameter("nombrepartido");
 	String nombreSecretarioGeneral = request.getParameter("nombresecretario");
 	String username = request.getParameter("user");		
-	String sfecha=request.getParameter("fechan");
+	String sfecha=request.getParameter("fecha");
         SimpleDateFormat format = new SimpleDateFormat("dd-mm-yyyy");
         Date fechaDeFundacion = format.parse(sfecha);
 
