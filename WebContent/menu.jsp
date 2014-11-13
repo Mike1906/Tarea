@@ -22,7 +22,7 @@
 					<li><a href="CrearMiembrojrv.html">Miembro JRV</a></li>
 					<li><a href="CrearTipoMiembro.html">Tipo Miembro</a></li>
 					<li><a href="IngresarPadron.html">Padron Electoral</a></li>
-					<li><a href="IngresarVotacion.html">Votacion</a></li>
+					<li><a href="ingresarVotacion.html">Votacion</a></li>
 					<li><a href="#">Urna</a></li>
 				</ul></li>
 			<li class="divider hide-for-small"></li>
