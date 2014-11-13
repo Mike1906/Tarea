@@ -6,7 +6,7 @@
 <%! String mensaje = "" ; %>
 <%     
 	CtrlDepartamento departamento=new CtrlDepartamento();
-List lista=departamento.daDepartamento();
+	List lista=departamento.daDepartamento();
 	int numero = lista.size();
 	
  	if (lista.isEmpty())
@@ -16,9 +16,9 @@ List lista=departamento.daDepartamento();
  		mensaje += "<table><tr> <th>ID DPTO</th> <th>NOMBRE DPTO</th> <th>ZONA GEOGRAFICA</th> <th>USERNAME</th> </tr>";  
  		for (int i=0; i < numero; i++) {
  			deparactual = (Departamento) lista.get(i);
- 			 mensaje += ("<tr><th>" + deparactual.getiddepto()+ "</th>"+
- 					 	 "<th>" + deparactual.getnombdepto()+ "</th>"+
- 					 	"<th>" + deparactual.getzonageografica()+ "</th>"+
+ 			 mensaje += ("<tr><th>" + deparactual.getIddepto()+ "</th>"+
+ 					 	 "<th>" + deparactual.getNombredepto()+ "</th>"+
+ 					 	"<th>" + deparactual.getZonageografica()+ "</th>"+
  					 	"<th>" + deparactual.getUsername() + "</th></tr>");
  		}
  	}

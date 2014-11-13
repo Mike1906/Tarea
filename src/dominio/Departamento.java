@@ -1,5 +1,7 @@
 package dominio;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,54 +12,56 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "departamento", catalog = "tarea", schema = "")
-@NamedQueries({
-@NamedQuery(name = "Departamento.findAll", query = "SELECT m FROM Departamento m"),
-@NamedQuery(name = "Departamento.findByNombres", query = "SELECT m FROM Departamento m WHERE m.nombres = :nombres")})
+@NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d")
 
-public class Departamento {
-  private String iddepto;
- private String nombdepto;
- private String zonageografica;
- private String username;
+public class Departamento implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private String iddepto;
+	private String nombredepto;
+	private String zonageografica;
+	private String username;
  
- private Departamento(){}
- 
- public Departamento(String nombdepto, String iddepto, String zonageografica,String username){		
-		this.nombdepto = nombdepto;
+	public Departamento(){}
+
+	public Departamento(String iddepto, String nombredepto,	String zonageografica, String username) {
 		this.iddepto = iddepto;
+		this.nombredepto = nombredepto;
 		this.zonageografica = zonageografica;
 		this.username = username;
 	}
-	
+
 	@Id		
 	@Basic(optional = false)	
-	@Column(name = "nombdepto")
-	public String getnombdepto() {
-		return nombdepto;
-	}
-
-	public void setnombdepto(String nombdepto) {
-		this.nombdepto = nombdepto;
-	}
-	@Basic(optional = false)	
 	@Column(name = "iddepto")
-	public String getiddepto() {
+	public String getIddepto() {
 		return iddepto;
 	}
 
-	public void setiddepto(String iddepto) {
+	public void setIddepto(String iddepto) {
 		this.iddepto = iddepto;
 	}
-	@Basic(optional = false)	
+
+	@Basic(optional = false)
+	@Column(name = "nombredepto")
+	public String getNombredepto() {
+		return nombredepto;
+	}
+
+	public void setNombredepto(String nombredepto) {
+		this.nombredepto = nombredepto;
+	}
+
+	@Basic(optional = false)
 	@Column(name = "zonageografica")
-	public String getzonageografica() {
+	public String getZonageografica() {
 		return zonageografica;
 	}
 
-	public void setzonageografica(String zonageografica) {
+	public void setZonageografica(String zonageografica) {
 		this.zonageografica = zonageografica;
 	}
-	@Basic(optional = false)	
+
+	@Basic(optional = false)
 	@Column(name = "username")
 	public String getUsername() {
 		return username;
@@ -65,7 +69,8 @@ public class Departamento {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}	
+	}
+	
 }
 
 

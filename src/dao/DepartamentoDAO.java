@@ -68,14 +68,4 @@ public class DepartamentoDAO {
 		return departamento;
 	}
 	
-	public Departamento daDepartamentoByNombres(String nombres) {
-		sesion = sessionFactory.openSession() ;
-		Query query = sesion.getNamedQuery("Departamento.findByNombres");
-		query.setParameter("nombres", nombres);
-		Departamento departamento = (Departamento) query.uniqueResult();
-		sesion.close() ;
-		return departamento;
-	}
-	
-	
 }

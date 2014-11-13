@@ -5,12 +5,12 @@
  <%
 String mensaje="";
 CtrlDepartamento departamento=new CtrlDepartamento();
-String nombdepto=request.getParameter("nombdepto");
-String iddepto=request.getParameter("iddepto");
-String zonageografica=request.getParameter("zonageografica");
+String iddepto=request.getParameter("id");
+String nombdepto=request.getParameter("nom");
+String zonageografica=request.getParameter("zona");
 String username=request.getParameter("username");
 
-boolean exito = departamento.crearDepartamento(nombdepto, iddepto, zonageografica, username); 
+boolean exito = departamento.crearDepartamento(iddepto,nombdepto, zonageografica, username); 
 if (exito==true)
    mensaje="se creo el Departamento correctamente";
 else

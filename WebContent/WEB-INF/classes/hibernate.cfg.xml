@@ -48,8 +48,9 @@
         <mapping class="dominio.Jrv"/> 
         <mapping class="dominio.PadronElectoral"/>
         <mapping class="dominio.PartidoPolitico"/>
-        <mapping class="dominio.Votacion"/> 
-
+        <mapping class="dominio.Votacion"/>
+        <mapping class="dominio.Departamento"/>
+        
     </session-factory>
 
 </hibernate-configuration>

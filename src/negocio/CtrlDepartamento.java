@@ -10,9 +10,9 @@ import dominio.Municipio;
 public class CtrlDepartamento {
 	private DepartamentoDAO daoMiembro = new DepartamentoDAO() ;
 
-	public boolean crearDepartamento(String nombdepto, String iddepto,String zonageografica, String username) {
-		if (daoMiembro.daDepartamentoByNombres(nombdepto) == null) {
-			Departamento miembro = new Departamento(nombdepto,iddepto,zonageografica,username);
+	public boolean crearDepartamento(String iddepto, String nombredepto,	String zonageografica, String username) {
+		if (daoMiembro.daDepartamentoById(iddepto) == null) {
+			Departamento miembro = new Departamento(iddepto, nombredepto, zonageografica, username);
 			daoMiembro.guardaActualiza(miembro);
 			return true ;
 		}
@@ -20,18 +20,18 @@ public class CtrlDepartamento {
 			return false ;
 	}
 	
-	public boolean eliminar(String nombdepto) {
-		if (daoMiembro.daDepartamentoByNombres(nombdepto) != null) {
-			Departamento miembro = daoMiembro.daDepartamentoByNombres(nombdepto) ;
+	public boolean eliminar(String iddepto) {
+		if (daoMiembro.daDepartamentoById(iddepto) != null) {
+			Departamento miembro = daoMiembro.daDepartamentoById(iddepto);
 			daoMiembro.eliminar(miembro) ;
 			return true ;
 		}
 		else
 			return false ;
 	}
-	public boolean actualizar(String nombdepto, String iddepto,String zonageografica, String username) {
-		if (daoMiembro.daDepartamentoByNombres(nombdepto) != null) {
-			Departamento miembro = new Departamento(nombdepto,iddepto,zonageografica,username);
+	public boolean actualizar(String iddepto, String nombredepto, String zonageografica, String username) {
+		if (daoMiembro.daDepartamentoById(iddepto) != null) {
+			Departamento miembro = new Departamento(iddepto, nombredepto, zonageografica, username);
 			daoMiembro.guardaActualiza(miembro);
 			return true ;
 		}
