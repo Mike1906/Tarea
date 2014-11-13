@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="negocio.*" %>
 <%
-	String id = request.getParameter("idmunicipio");	
+	String id = request.getParameter("id");	
 	
 	CtrlMunicipio ctrl = new CtrlMunicipio();
 

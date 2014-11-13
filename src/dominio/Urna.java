@@ -15,31 +15,24 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "urna", catalog = "tarea", schema = "")
-@NamedQueries({
-@NamedQuery(name = "Urna.findAll", query = "SELECT u FROM Urna u"),
-@NamedQuery(name = "Urna.findByIdUrna", query = "SELECT u FROM Urna u WHERE d.idUrna = :idUrna"),
-})
+@NamedQuery(name = "Urna.findAll", query = "SELECT u FROM Urna u")
 
-
-public class Urna implements Serializable {
-
+public class Urna  implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private int idurna;  
-	private int idmunicipio;  
-	private int iddepto;  
+	private String idmunicipio;  
+	private String iddepto;  
 	private int numjunta;  
 	private String presidente;  
 	private String secretario;  
 	private int cantvotosnulos;  
-	private int cantvotosnovalid;  
-	private int username;
-	public Urna() {
-		super();
-		// TODO Auto-generated constructor stub
+	private String cantvotosnovalid;  
+	private String username;
+	
+	public Urna() {		
 	}
-	public Urna(int idurna, int idmunicipio, int iddepto, int numjunta,
-			String presidente, String secretario, int cantvotosnulos,
-			int cantvotosnovalid, int username) {
-		super();
+
+	public Urna(int idurna, String idmunicipio, String iddepto, int numjunta,String presidente, String secretario, int cantvotosnulos, String cantvotosnovalid, String username) {
 		this.idurna = idurna;
 		this.idmunicipio = idmunicipio;
 		this.iddepto = iddepto;
@@ -50,104 +43,97 @@ public class Urna implements Serializable {
 		this.cantvotosnovalid = cantvotosnovalid;
 		this.username = username;
 	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name = "idurna")
+
+	@Id 
+	@Basic(optional = false) 
+	@Column(name = "idurna") 
 	public int getIdurna() {
 		return idurna;
 	}
-	
-	
+
 	public void setIdurna(int idurna) {
 		this.idurna = idurna;
 	}
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "idmunicipio")
-	public int getIdmunicipio() {
+	public String getIdmunicipio() {
 		return idmunicipio;
 	}
-	
-	public void setIdmunicipio(int idmunicipio) {
+
+	public void setIdmunicipio(String idmunicipio) {
 		this.idmunicipio = idmunicipio;
 	}
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "iddepto")
-	public int getIddepto() {
+	public String getIddepto() {
 		return iddepto;
 	}
-	
-	public void setIddepto(int iddepto) {
+
+	public void setIddepto(String iddepto) {
 		this.iddepto = iddepto;
 	}
-	
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "numjunta")
 	public int getNumjunta() {
 		return numjunta;
 	}
-	
+
 	public void setNumjunta(int numjunta) {
 		this.numjunta = numjunta;
 	}
-	
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "presidente")
 	public String getPresidente() {
 		return presidente;
 	}
-	
+
 	public void setPresidente(String presidente) {
 		this.presidente = presidente;
 	}
-	
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "secretario")
 	public String getSecretario() {
 		return secretario;
 	}
-	
+
 	public void setSecretario(String secretario) {
 		this.secretario = secretario;
 	}
-	
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "cantvotosnulos")
 	public int getCantvotosnulos() {
 		return cantvotosnulos;
 	}
-	
+
 	public void setCantvotosnulos(int cantvotosnulos) {
 		this.cantvotosnulos = cantvotosnulos;
 	}
-	
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "cantvotosnovalid")
-	public int getCantvotosnovalid() {
+	public String getCantvotosnovalid() {
 		return cantvotosnovalid;
 	}
-	
-	public void setCantvotosnovalid(int cantvotosnovalid) {
+
+	public void setCantvotosnovalid(String cantvotosnovalid) {
 		this.cantvotosnovalid = cantvotosnovalid;
 	}
-	
-	@Basic(optional = false)
+
+	@Basic(optional = false) 
 	@Column(name = "username")
-	public int getUsername() {
+	public String getUsername() {
 		return username;
 	}
-	
-	public void setUsername(int username) {
+
+	public void setUsername(String username) {
 		this.username = username;
-	}  
+	}
 	
-		
+			
 }

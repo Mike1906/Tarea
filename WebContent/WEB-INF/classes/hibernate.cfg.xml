@@ -51,6 +51,7 @@
         <mapping class="dominio.Votacion"/>
         <mapping class="dominio.Departamento"/>
         <mapping class="dominio.Municipio"/>
+        <mapping class="dominio.Urna"/>
         
     </session-factory>
 

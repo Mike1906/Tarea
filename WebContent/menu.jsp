@@ -23,7 +23,7 @@
 					<li><a href="CrearTipoMiembro.html">Tipo Miembro</a></li>
 					<li><a href="IngresarPadron.html">Padron Electoral</a></li>
 					<li><a href="IngresarVotacion.html">Votacion</a></li>
-					<li><a href="#">Urna</a></li>
+					<li><a href="CrearUrna.html">Urna</a></li>
 				</ul></li>
 			<li class="divider hide-for-small"></li>
 			<li class="has-dropdown"><a href="#">Consultar Datos</a>

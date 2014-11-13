@@ -47,10 +47,6 @@ public Jrv(String iddepto, String idmunicipio, String dui,
 	this.username = username;
 }
 
-
-
-
-
 @Id 
 @GeneratedValue(strategy = GenerationType.IDENTITY) 
 @Basic(optional = false) 
@@ -58,7 +54,6 @@ public Jrv(String iddepto, String idmunicipio, String dui,
 public Short getIdjrv() {
 	return idjrv;
 }
-
 
 public void setIdjrv(Short idjrv) {
 	this.idjrv = idjrv;
@@ -70,7 +65,6 @@ public String getIddepto() {
 	return iddepto;
 }
 
-
 public void setIddepto(String iddepto) {
 	this.iddepto = iddepto;
 }
@@ -80,7 +74,6 @@ public void setIddepto(String iddepto) {
 public String getIdmunicipio() {
 	return idmunicipio;
 }
-
 
 public void setIdmunicipio(String idmunicipio) {
 	this.idmunicipio = idmunicipio;
@@ -92,7 +85,6 @@ public String getDui() {
 	return dui;
 }
 
-
 public void setDui(String dui) {
 	this.dui = dui;
 }
@@ -103,13 +95,8 @@ public String getUsername() {
 	return username;
 }
 
-
 public void setUsername(String username) {
 	this.username = username;
 }
 
-
-
-
- 
 }
