@@ -17,10 +17,10 @@
  		mensaje += "<table><tr> <th>ID PARTIDO</th> <th>NOMBRE DEL PARTIDO</th> <th>FECHA DE FUNDACION</th> <th>NOMBRE DEL SECRETARIO GENERAL</th> <th>USUARIO</th> </tr>";  
  		for (int i=0; i < numero; i++) {
  			 uActual = (PartidoPolitico) partidopolitico.get(i);
- 			 mensaje += ("<tr><th>" + uActual.getIdPartidoPolitico()+ "</th>"+
- 					     "<th>" + uActual.getNombrePartido()+ "</th>"+
- 					 	 "<th>" + uActual.getFechaDeFundacion()+ "</th>"+
- 					 	 "<th>" + uActual.getNombreSecretarioGeneral()+ "</th>"+
+ 			 mensaje += ("<tr><th>" + uActual.getIdpartido()+ "</th>"+
+ 					     "<th>" + uActual.getNombpartido()+ "</th>"+
+ 					 	 "<th>" + uActual.getFechafundac()+ "</th>"+
+ 					 	 "<th>" + uActual.getNombsecretariogral()+ "</th>"+
  					     "<th>" + uActual.getUsername()+ "</th></tr>");
  		}
  	}
