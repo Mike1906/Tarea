@@ -35,7 +35,7 @@ public class CtrlVotacion {
             votacion.setIdpartido(idpartido);
             votacion.setCantvotosvalidos(cantvotosvalidos);
             votacion.setUsername(username);
-              daoVotacion.guardaActualiza(v) ; 
+              daoVotacion.guardaActualiza(votacion) ; 
               return true ;}
     	 else
     		 return false;
