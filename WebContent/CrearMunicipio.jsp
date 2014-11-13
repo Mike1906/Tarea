@@ -5,9 +5,9 @@
  <%
 String mensaje="";
 CtrlMunicipio municipio=new CtrlMunicipio();
-String idmunicipio=request.getParameter("idmunicipio");
-String iddepto=request.getParameter("iddepto");
-String nombmunicipio=request.getParameter("nombmunicipio");
+String idmunicipio=request.getParameter("id");
+String iddepto=request.getParameter("id2");
+String nombmunicipio=request.getParameter("nombre");
 String username=request.getParameter("username");
 
 boolean exito= municipio.crearMunicipio(idmunicipio, iddepto, nombmunicipio, username); 

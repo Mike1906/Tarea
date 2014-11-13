@@ -10,7 +10,7 @@ import dominio.Municipio;
 public class CtrlDepartamento {
 	private DepartamentoDAO daoMiembro = new DepartamentoDAO() ;
 
-	public boolean crearDepartamento(String iddepto, String nombredepto,	String zonageografica, String username) {
+	public boolean crearDepartamento(String iddepto, String nombredepto, String zonageografica, String username) {
 		if (daoMiembro.daDepartamentoById(iddepto) == null) {
 			Departamento miembro = new Departamento(iddepto, nombredepto, zonageografica, username);
 			daoMiembro.guardaActualiza(miembro);

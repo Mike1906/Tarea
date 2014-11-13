@@ -13,12 +13,12 @@ List lista=municipio.daMunicipio();
  		 mensaje = "No Hay Datos";
  	else {
  		Municipio muniactual;
- 		mensaje += "<table><tr> <th>ID DPTO</th> <th>NOMBRE DPTO</th> <th>ZONA GEOGRAFICA</th> <th>USERNAME</th> </tr>";  
+ 		mensaje += "<table><tr> <th>ID MUNICIPIO</th> <th>ID DEPTO</th> <th>NOMBRE MUNICIPIO</th> <th>USUARIO</th> </tr>";  
  		for (int i=0; i < numero; i++) {
  			muniactual = (Municipio) lista.get(i);
- 			 mensaje += ("<tr><th>" + muniactual.getiddepto()+ "</th>"+
- 					 	 "<th>" + muniactual.getidmunicipio()+ "</th>"+
- 					 	"<th>" + muniactual.getnombmunicipio()+ "</th>"+
+ 			 mensaje += ("<tr><th>" + muniactual.getIdmunicipio()+ "</th>"+
+ 					 	 "<th>" + muniactual.getIddepto()+ "</th>"+
+ 					 	"<th>" + muniactual.getNombmunicipio()+ "</th>"+
  					 	"<th>" + muniactual.getUsername() + "</th></tr>");
  		}
  	}

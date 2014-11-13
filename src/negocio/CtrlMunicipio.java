@@ -7,8 +7,8 @@ public class CtrlMunicipio {
 	private MunicipioDAO daoMiembro = new MunicipioDAO() ;
 
 	public boolean crearMunicipio(String idmunicipio, String iddepto,String nombmunicipio, String username) {
-		if (daoMiembro.daMiembroByNombres(idmunicipio) == null) {
-			Municipio miembro = new Municipio(idmunicipio,iddepto,nombmunicipio,username);
+		if (daoMiembro.daMunicipioById(idmunicipio) == null) {
+			Municipio miembro = new Municipio(idmunicipio, iddepto, nombmunicipio, username);
 			daoMiembro.guardaActualiza(miembro) ;
 			return true ;
 		}
@@ -17,18 +17,9 @@ public class CtrlMunicipio {
 	}
 	
 	public boolean eliminar(String idmunicipio) {
-		if (daoMiembro.daMiembroById(idmunicipio) != null) {
-			Municipio miembro = daoMiembro.daMiembroById(idmunicipio) ;
+		if (daoMiembro.daMunicipioById(idmunicipio) != null) {
+			Municipio miembro = daoMiembro.daMunicipioById(idmunicipio) ;
 			daoMiembro.eliminar(miembro) ;
-			return true ;
-		}
-		else
-			return false ;
-	}
-	public boolean actualizar(String idmunicipio, String iddepto,String nombmunicipio, String username) {
-		if (daoMiembro.daMiembroByNombres(idmunicipio) != null) {
-			Municipio miembro = new Municipio(idmunicipio,iddepto,nombmunicipio,username);
-			daoMiembro.guardaActualiza(miembro) ;
 			return true ;
 		}
 		else
@@ -39,8 +30,5 @@ public class CtrlMunicipio {
 		return daoMiembro.daMunicipio() ;
 	}
 	
-	public Municipio daMiembroByNombres(String nombres) {
-		return daoMiembro.daMiembroByNombres(nombres) ;
-	}
 
 }

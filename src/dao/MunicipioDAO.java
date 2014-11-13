@@ -51,7 +51,7 @@ public class MunicipioDAO {
 			sesion.close() ;
 		}
 	}
-	public Municipio daMiembroById(String idmunicipio){
+	public Municipio daMunicipioById(String idmunicipio){
 		sesion = sessionFactory.openSession() ;
 		// Retorna la instancia persistente de la clase por medio del atributo identidad
 		Municipio id = (Municipio) sesion.get(Municipio.class,new String(idmunicipio)) ;
@@ -63,15 +63,6 @@ public class MunicipioDAO {
 		sesion = sessionFactory.openSession() ;
 		Query query = sesion.getNamedQuery("Municipio.findAll");
 		List<Municipio> municipio = query.list() ;
-		sesion.close() ;
-		return municipio;
-	}
-	
-	public Municipio daMiembroByNombres(String nombres) {
-		sesion = sessionFactory.openSession() ;
-		Query query = sesion.getNamedQuery("Miembrojrv.findByNombres");
-		query.setParameter("nombres", nombres);
-		Municipio municipio = (Municipio) query.uniqueResult();
 		sesion.close() ;
 		return municipio;
 	}

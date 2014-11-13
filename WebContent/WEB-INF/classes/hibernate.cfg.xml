@@ -50,6 +50,7 @@
         <mapping class="dominio.PartidoPolitico"/>
         <mapping class="dominio.Votacion"/>
         <mapping class="dominio.Departamento"/>
+        <mapping class="dominio.Municipio"/>
         
     </session-factory>
 

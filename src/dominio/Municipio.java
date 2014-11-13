@@ -1,4 +1,6 @@
 package dominio;
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,19 +11,18 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "municipio", catalog = "tarea", schema = "")
-@NamedQueries({
-@NamedQuery(name = "Municipio.findAll", query = "SELECT m FROM Municipio m"),
-@NamedQuery(name = "Municipio.findByNombres", query = "SELECT m FROM Municipio m WHERE m.nombres = :nombres")})
+@NamedQuery(name = "Municipio.findAll", query = "SELECT m FROM Municipio m")
 
-public class Municipio {
- private String idmunicipio;
- private String iddepto;
- private String nombmunicipio;
- private String username;
+public class Municipio implements Serializable{
+     private static final long serialVersionUID = 1L;
+	 private String idmunicipio;
+	 private String iddepto;
+	 private String nombmunicipio;
+	 private String username;
 	
- private Municipio(){}
- 
- public Municipio(String idmunicipio, String iddepto, String nombmunicipio,String username){		
+	 public Municipio(){}
+	
+	 public Municipio(String idmunicipio, String iddepto, String nombmunicipio,String username) {
 		this.idmunicipio = idmunicipio;
 		this.iddepto = iddepto;
 		this.nombmunicipio = nombmunicipio;
@@ -31,40 +32,44 @@ public class Municipio {
 	@Id		
 	@Basic(optional = false)	
 	@Column(name = "idmunicipio")
-	public String getidmunicipio() {
+	public String getIdmunicipio() {
 		return idmunicipio;
 	}
-
-	public void setidmunicipio(String idmunicipio) {
+	
+	public void setIdmunicipio(String idmunicipio) {
 		this.idmunicipio = idmunicipio;
 	}
-	@Basic(optional = false)	
+	
+	@Basic(optional = false)
 	@Column(name = "iddepto")
-	public String getiddepto() {
+	public String getIddepto() {
 		return iddepto;
 	}
-
-	public void setiddepto(String iddepto) {
+	
+	public void setIddepto(String iddepto) {
 		this.iddepto = iddepto;
 	}
-	@Basic(optional = false)	
+	
+	@Basic(optional = false)
 	@Column(name = "nombmunicipio")
-	public String getnombmunicipio() {
+	public String getNombmunicipio() {
 		return nombmunicipio;
 	}
-
-	public void setnombmunicipio(String nombmunicipio) {
+	
+	public void setNombmunicipio(String nombmunicipio) {
 		this.nombmunicipio = nombmunicipio;
 	}
-	@Basic(optional = false)	
+	
+	@Basic(optional = false)
 	@Column(name = "username")
 	public String getUsername() {
 		return username;
 	}
-
+	
 	public void setUsername(String username) {
 		this.username = username;
-	}	
+	}
+ 	
 }
 
  
