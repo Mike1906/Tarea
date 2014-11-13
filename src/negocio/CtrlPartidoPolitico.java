@@ -30,7 +30,7 @@ public class CtrlPartidoPolitico {
 	public boolean actualizar(String idpartido, String nombpartido, Date fechafundac, String nombsecretariogral, String username) {
          	if (daoPartidoPolitico.daPartidoPoliticoById(idpartido) != null) {
             PartidoPolitico partidopolitico = new PartidoPolitico(idpartido,nombpartido,fechafundac,nombsecretariogral, username);
-			daoMPartidoPolitico.guardaActualiza(partidopolitico) ;
+			daoPartidoPolitico.guardaActualiza(partidopolitico) ;
 			return true ;
 		}
               return true ;}
